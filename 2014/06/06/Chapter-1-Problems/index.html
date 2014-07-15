@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Chapter 1 Problems | CMSI 486</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta content="article" property="og:type">
+<meta content="Chapter 1 Problems" property="og:title">
+<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" property="og:url">
+<meta property="og:image">
+<meta content="CMSI 486" property="og:site_name">
+<meta content="These are selected problems from chapter one of the textbook that I’m using" property="og:description">
+<meta content="summary" name="twitter:card">
+  
+    <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/CMSI_486_Databases/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/CMSI_486_Databases/" id="logo">CMSI 486</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/CMSI_486_Databases/" id="subtitle">Databases Independent Study</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://alexschneider.github.io/CMSI_486_Databases"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Chapter-1-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" class="article-date">
+  <time datetime="2014-06-07T03:07:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Chapter 1 Problems
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>These are selected problems from chapter one of the textbook that I’m using</p>
+<a id="more"></a>
+
+<p>1.8. Identify some informal queries and update operations you would expect to apply to the database shown in Figure 1.2</p>
+<ul>
+<li>Select all students whose major is computer science</li>
+<li>Add a new course</li>
+<li>Change course’s instructor</li>
+<li>Select all students who have a GPA of above 3.5</li>
+<li>Show available course for a student to take based on prerequisites</li>
+</ul>
+<p>1.9. What is the difference between controlled and uncontrolled redundancy? Illustrate with examples.</p>
+<ul>
+<li>Redundancy involves storing the same information in more than one place, often to improve performance of queries</li>
+<li>Controlled redundancy is when the data is kept in sync across all of its locations. Often databases provide mechanisms towards this goal.</li>
+<li>Uncontrolled redundancy occurs when data is out of sync, two different records referring to the same thing have different values.</li>
+<li>Obviously, controlled redundancy is more desirable.</li>
+</ul>
+<p>1.10. Specify all the relationships among the records of the database shown in Figure 1.2.</p>
+<ul>
+<li>STUDENT is related to:<ul>
+<li>GRADE_REPORT</li>
+</ul>
+</li>
+<li>COURSE is related to:<ul>
+<li>SECTION</li>
+<li>PREREQUISITE</li>
+</ul>
+</li>
+<li>SECTION is related to:<ul>
+<li>COURSE</li>
+<li>GRADE_REPORT</li>
+</ul>
+</li>
+<li>GRADE_REPORT is related to:<ul>
+<li>STUDENT</li>
+<li>SECTION</li>
+</ul>
+</li>
+<li>PREREQUISITE is related to:<ul>
+<li>COURSE</li>
+</ul>
+</li>
+</ul>
+<p>1.11. Give some additional views that may be needed by other user groups for the database shown in Figure 1.2.</p>
+<ul>
+<li>Transcript (Students, courses, and grades)</li>
+<li>Course assignment (Students, courses, sections, and prerequisite)</li>
+<li>Change course listing (Section, course name)</li>
+</ul>
+<p>1.12. Cite some examples of integrity constraints that you think can apply to the database shown in Figure 1.2.</p>
+<ul>
+<li>Grade can only be ABCD or F</li>
+<li>Students can’t take more than a certain amount of classes or two of the same classes in the same semester and year</li>
+<li>A course can’t depend on itself as a prerequisite</li>
+</ul>
+<p>1.13. Give examples of systems in which it may make sense to use traditional file processing instead of a database approach.</p>
+<ul>
+<li>Limited resources - traditional file processing doesn’t require much storage space or processor time.</li>
+<li>Extremely specific applications - Traditional file processing is easier to read and write to for a programmer and may not need the overhead of a database if only one user is going to use it at a time.</li>
+<li>Data that doesn’t fit well in a database - Some data is too big for a database to handle reliably, or is a specific specification that makes it unsuitable for databases.</li>
+</ul>
+<p>1.14. Consider Figure 1.2.<br><strong>a.</strong> If the name of the ‘CS’ (Computer Science) Department changes to ‘CSSE’ (Computer Science and Software Engineering) Department and the corresponding prefix for the course number also changes, identify the columns in the database that would need to be updated</p>
+<ul>
+<li>STUDENT/Major</li>
+<li>COURSE/Course_number and COURSE/Department</li>
+<li>PREREQUISITE/Course_number and PREREQUISITE/Prerequisite_number</li>
+</ul>
+<p><strong>b.</strong> Can you restructure the columns in the COURSE, SECTION, and PREREQUISITE tables sot hat only one column will need to be updated?</p>
+<ul>
+<li>Add a new table called DEPARTMENT with two columns, Department_name and Department_identifier.</li>
+<li>Replace STUDENT/Major and COURSE/Department with the Department_identifier</li>
+<li>Ensure that the Course_numbers are unique, and remove the letter prefix from them. Add a new column in all the tables that have the Course_numbers column called Course_department, fill in with Department_identifier</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" data-id="avj9ejjx0idfys08" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/CMSI_486_Databases/2014/06/07/Initial-Planning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Initial Planning
+        
+      </div>
+    </a>
+  
+  
+    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Week Two</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/01/week-five/">Week Five</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-four/">Week Four</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-one/">Week One</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Alex Schneider<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/CMSI_486_Databases/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/CMSI_486_Databases/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/CMSI_486_Databases/js/script.js"></script>
+  </div>
+</body>
+</html>

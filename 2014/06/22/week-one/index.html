@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Week One | CMSI 486</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta content="article" property="og:type">
+<meta content="Week One" property="og:title">
+<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/22/week-one/" property="og:url">
+<meta property="og:image">
+<meta content="CMSI 486" property="og:site_name">
+<meta content="Introduction
+This is the beginnings of my blog for the LMU CMSI 486 Databases independent study class, taught by Professor Mike Megally. As a part of the class, I will blog about my weekly progress an" property="og:description">
+<meta content="summary" name="twitter:card">
+  
+    <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/CMSI_486_Databases/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/CMSI_486_Databases/" id="logo">CMSI 486</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/CMSI_486_Databases/" id="subtitle">Databases Independent Study</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://alexschneider.github.io/CMSI_486_Databases"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-week-one" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/22/week-one/" class="article-date">
+  <time datetime="2014-06-22T15:49:13.000Z" itemprop="datePublished">Jun 22nd 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Week One
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Introduction">Introduction</h2>
+<p>This is the beginnings of my blog for the LMU CMSI 486 Databases independent study class, taught by Professor Mike Megally. As a part of the class, I will blog about my weekly progress and include updates on things that I have read, programs that I have written, and other things that may come up over the course of the summer.<br><a id="more"></a><br>Let me start by describing what a database is. According to the textbook I chose for this summer, <a href="http://www.pearsonhighered.com/educator/product/Fundamentals-of-Database-Systems/9780136086208.page" target="_blank">Fundamentals of Database Systems, 6th Edition</a>:</p>
+<blockquote><p>A database is a collection of related data. By data, we mean known facts that can be recorded and have implicit meaning.</p>
+<footer><strong>Elmasri & Navathe</strong><cite>Fundamentals of Database Systems</cite></footer></blockquote>
+
+
+<p>So by that metric, anything that contains information or attributes about something is a database. Since this is a computer science class, I will focus primarily on the databases that are specifically designed for being used in programs. The aforementioned book laid out these properties for those types of databases:</p>
+<blockquote><ul>
+<li>A database represents some aspect of the real world, sometimes called the miniworld or the universe of discourse (UoD). Changes to the miniworld are reflected in the database.</li>
+<li>A database is a logically coherent collection of data with some inherent meaning. A random assortment of data cannot correctly be referred to as a database.</li>
+<li>A database is designed, built, and populated with data for a specific purpose. It has an intended group of users and some preconceived applications in which these users are interested.</li>
+</ul>
+<footer><strong>Elmasri & Navathe</strong><cite>Fundamentals of Database Systems</cite></footer></blockquote>
+
+
+<hr>
+<h2 id="Objectives">Objectives</h2>
+<p>Since this is an independent study class, I have the luxury of choosing my own direction to a certain extent. I have, therefore, set these objectives for myself:</p>
+<ul>
+<li>Determine why traditional databases are important and what use do they serve me as a programmer.</li>
+<li>Different types of databases <strong>(Chapters 2-3)</strong><ul>
+<li>Why are relational databases king? What are some alternative technologies that are up and coming or that relational databases overtook and what advantages and disadvantages do they have? <strong>(Chapter 11)</strong></li>
+<li>Design of databases: How are they structured under the hood? What decisions went into their design? <strong>(Chapters 16-18)</strong></li>
+</ul>
+</li>
+<li>Technical details about databases<ul>
+<li>How do they handle concurrent writes and duplicate writes? Why is this a problem? Should this be handled on the program side or the database side? <strong>(Chapter 22)</strong></li>
+<li>Advanced features of SQL (and other technologies) that go beyond the typical CRUD like triggers, assertions, etc. <strong>(Chapter 5)</strong></li>
+<li>Programming for databases <strong>(Chapter 13)</strong></li>
+<li>Optimizing databases: <strong>(Chapters 19-20)</strong></li>
+<li>Is it better to sort/join/etc within the database queries or within the program itself?</li>
+<li>How to construct queries to be the most optimized.</li>
+<li>Database schema optimization/normalization/denormalization <strong>(Chapter 15)</strong></li>
+<li>Transactions <strong>(Chapter 21)</strong></li>
+</ul>
+</li>
+<li>Database security from a programmer’s perspective and from an administrator’s perspective <strong>(Chapter 24)</strong></li>
+<li>How to properly administer a database. <strong>(Chapter 23)</strong></li>
+<li>Distributed databases: How do they work and what are they used for? <strong>(Chapter 25)</strong><ul>
+<li><a href="http://prestodb.io/" target="_blank">PrestoDB</a></li>
+</ul>
+</li>
+<li>Theoretical stuff<ul>
+<li>Conceptual database and schema design <strong>(Chapters 7-10)</strong></li>
+<li>Relational algebra and calculus <strong>(Chapter 6)</strong></li>
+<li>Theoretical databases like Google’s <a href="http://research.google.com/pubs/pub41344.html" target="_blank">F1</a>,</li>
+</ul>
+</li>
+</ul>
+<p>This is by no means an exhaustive list of things that I want to learn this semester, but I feel that it is a good start. I reserve the right to add or subtract things from the list as I learn more and more and progress through the course.</p>
+<hr>
+<h2 id="Technologies">Technologies</h2>
+<p>Here’s a list of all the database technologies I know about and would like to learn more about. More will be added to the list as the summer goes on.</p>
+<ul>
+<li>SQL<ul>
+<li>MySQL (MariaDB)</li>
+<li>Postgres</li>
+<li>SQLite</li>
+<li>MS-SQL</li>
+<li>Oracle</li>
+<li>H2</li>
+</ul>
+</li>
+<li>NoSQL<ul>
+<li>MongoDB</li>
+</ul>
+</li>
+<li>Key Value Stores<ul>
+<li>Redis</li>
+<li>Memcached</li>
+</ul>
+</li>
+<li>Flat Files</li>
+</ul>
+<hr>
+<h2 id="Portfolio/Product">Portfolio/Product</h2>
+<p>As a part of this course, I will produce the following (subject to change):</p>
+<ul>
+<li>A weekly blog post detailing my studies over the period, websites/academic papers that I found interesting, and summarizing the code or papers that I’ve written (Posted every Sunday).</li>
+<li>A comprehensive project that utilizes several of the aforementioned technologies.</li>
+<li>A substantial amount of problems from the textbook, to be published on this blog or on github.</li>
+<li>A compiled overview of what I’ve done over the course of the summer (most likely overwhelmingly copied and pasted from the blog posts that I’ve made)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/22/week-one/" data-id="qxqbt4kef9v13a5r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/CMSI_486_Databases/2014/06/22/week-four/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Week Four
+        
+      </div>
+    </a>
+  
+  
+    <a href="/CMSI_486_Databases/2014/06/08/Data-Minining/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Data Minining</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/01/week-five/">Week Five</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-four/">Week Four</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-one/">Week One</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Alex Schneider<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/CMSI_486_Databases/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/CMSI_486_Databases/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/CMSI_486_Databases/js/script.js"></script>
+  </div>
+</body>
+</html>

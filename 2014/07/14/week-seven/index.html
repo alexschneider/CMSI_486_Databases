@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Week Seven | CMSI 486</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta content="article" property="og:type">
+<meta content="Week Seven" property="og:title">
+<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/14/week-seven/" property="og:url">
+<meta property="og:image">
+<meta content="CMSI 486" property="og:site_name">
+<meta content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a" property="og:description">
+<meta content="summary" name="twitter:card">
+  
+    <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/CMSI_486_Databases/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/CMSI_486_Databases/" id="logo">CMSI 486</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/CMSI_486_Databases/" id="subtitle">Databases Independent Study</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://alexschneider.github.io/CMSI_486_Databases"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-week-seven" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/07/14/week-seven/" class="article-date">
+  <time datetime="2014-07-14T15:09:25.000Z" itemprop="datePublished">Jul 14th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Week Seven
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a lot of time with the textbook and catching with pyORMatic then. I’ll try to make more advances over the coming weeks, as they ought to be less hectic than the last couple of weeks.</p>
+<p>This week in Mongo was about Schema design. More specifically, about how Schemaless design is “great.” I’ve ranted a little in last week’s post about this, but here’s some more:</p>
+<ul>
+<li>It is nice to have a rich document design that can have many layers. This reduces the number of documents/tables needed to store related information. As such, One-One and One-Many relations are modeled quite easily in Mongo, assuming the data being stored is only pertinent to the parent document.  </li>
+<li>However, having such a rich document design has drawbacks, since it makes it difficult to have normalized data - that is, data that isn’t repeated or replicated. Ideally, if something needed changing, one would only need to change it in one location.</li>
+<li>Furthermore, relations between tables have to be performed inside the programming language, rather than inside the database. There may be a way that I haven’t learned yet to do relations within Mongo, but what I have learned just feels very clunky.</li>
+</ul>
+<p>It felt like there were several workarounds that were needed to accurately model the relations. In the Mongo videos, the examples that they gave amounted to: “You would never actually need to do this with correct schema design”, or “We don’t need to store this data because it would contradict with our schema design”.</p>
+<p>For the homework this week, I did write a couple of one liners in python that were pretty awesome. A little bit of an aside: Functional constructs in langauges are amazing. They allow code to be incredibly short and once one understands them, can pack a ton of power into a single line of code.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/14/week-seven/" data-id="dx5fttw49ukk7222" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/CMSI_486_Databases/2014/07/07/week-six/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Week Six</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/01/week-five/">Week Five</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-four/">Week Four</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-one/">Week One</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Alex Schneider<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/CMSI_486_Databases/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/CMSI_486_Databases/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/CMSI_486_Databases/js/script.js"></script>
+  </div>
+</body>
+</html>

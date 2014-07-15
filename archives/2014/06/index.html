@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2014/6 | CMSI 486</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta content="website" property="og:type">
+<meta property="og:title">
+<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/archives/2014/06/" property="og:url">
+<meta property="og:image">
+<meta content="CMSI 486" property="og:site_name">
+<meta property="og:description">
+<meta content="summary" name="twitter:card">
+  
+    <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/CMSI_486_Databases/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/CMSI_486_Databases/" id="logo">CMSI 486</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/CMSI_486_Databases/" id="subtitle">Databases Independent Study</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://alexschneider.github.io/CMSI_486_Databases"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-week-four" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/22/week-four/" class="article-date">
+  <time datetime="2014-06-22T20:21:23.000Z" itemprop="datePublished">Jun 22nd 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/06/22/week-four/">Week Four</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>So keen followers of this blog may notice that Week Three is mysteriously missing from the list of blog posts. This was intentional, you see, because this is a computer science class. As such, computer scientists only know how to count in multiples of two, so this will be the only blog post until week 8 of the course <sup>not really</sup>.</p>
+<p>What actually happened was far less exciting - I got rather sick over the past couple weeks, and in between work and trying to rest up, I was forced to abandon my academic pursuits. However, I’m now back! As a result of being off for so long, I’ll attempt to make this post longer than normal. So last week, the class met for the 2<sup>nd</sup> time. We discussed our projects and what we had learned up to that point. One of the things we talked about were some of the difficulties with using flat files to store information in databases.</p>
+<p>Flat files are a very simple method of storing data that involves the application using them directly writing data to and from the filesystem. In general, the programmer implements a flat file data store from scratch in his program, handling reading and writing by himself, in some sort of standard format. Flat file database stores suffer from a couple of issues:</p>
+<ul>
+<li>There’s no concurrent access since opening a file handle places a file lock on it.</li>
+<li>Reading and writing from a file incurs a lot of overhead (This is alleviated by caching, but increases the complexity of a program)</li>
+<li>The program is in charge of file management and writing the files. Occasionally there are libraries that help with this, such as INI or CSV libraries.</li>
+</ul>
+<p>The main idea of flat files is to reduce the dependencies that a program requires, so that an entire database doesn’t have to be bundled with the program. In some languages, like python, there is already support for databases like SQLite, negating many of the advantages that flat files have. However, if reading and writing is only done rarely, there really is no point in increasing the complexity of the code to implement an SQL engine.</p>
+<p>In my database for flat files, one of the main things I have to reconcile is caching and database persistence. One very important thing is to ensure that databases do not lose data, so I’ve been trying to figure out a good way to do so. So far, I cache all the objects in memory, and the only time that the file is ever touched is when it is updated. I’m working on embedding transactions into the database, though I don’t think I’ll be able to go as far as ACID compliance. That will likely be the subject of a future post, as I haven’t been spending as much time on it as I’d like to.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/22/week-four/" data-id="bh3rjq45ptk3pdmc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-week-one" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/22/week-one/" class="article-date">
+  <time datetime="2014-06-22T15:49:13.000Z" itemprop="datePublished">Jun 22nd 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/06/22/week-one/">Week One</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Introduction">Introduction</h2>
+<p>This is the beginnings of my blog for the LMU CMSI 486 Databases independent study class, taught by Professor Mike Megally. As a part of the class, I will blog about my weekly progress and include updates on things that I have read, programs that I have written, and other things that may come up over the course of the summer.<br>
+        
+          <p class="article-more-link">
+            <a href="/CMSI_486_Databases/2014/06/22/week-one/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/22/week-one/" data-id="qxqbt4kef9v13a5r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Data-Minining" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/08/Data-Minining/" class="article-date">
+  <time datetime="2014-06-08T15:12:00.000Z" itemprop="datePublished">Jun 8th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/06/08/Data-Minining/">Data Minining</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://guidetodatamining.com/" target="_blank">This</a> book looks really interesting. Data mining and databases certainly go well together, so I ought to read it and write a report on it. Will be up at a later date on this page. </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/08/Data-Minining/" data-id="2bzg51c2pn5qse79" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Initial-Planning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/07/Initial-Planning/" class="article-date">
+  <time datetime="2014-06-07T20:50:17.000Z" itemprop="datePublished">Jun 7th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/06/07/Initial-Planning/">Initial Planning</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This will be my plan for pyORMatic, a python ORM project aimed at supporting as many free and open source database systems as physically possible.</p>
+<p>My application structure will have 3 separate layers.</p>
+<ol>
+<li>Database Class.<ul>
+<li>Handles connecting to the database and performs all the raw queries that are specific to that database. There will be one abstract database class that each individual database will extend. This will handle reading data from the database, placing data into the database, updating data, and deleting data. It will also handle describing the database schema and creating database schema, so the program can handle switching between databases with ease. Finally, it will handle creating all the table classes for the database.</li>
+</ul>
+</li>
+<li>Table Class<ul>
+<li>This will be more or less identical across all the different types of databases. This will handle creating an object for each individual row in the database (from here on out, known as a database_object). It will also handle keeping the database_objects in sync with the database, and schema changes for tables.</li>
+</ul>
+</li>
+<li>DatabaseObject class<ul>
+<li>This class will be dynamically created by the table class so that it matches the database schema exactly. The class will only support setting and retrieving variables. Any other database manipulation should be handled in the Table class.</li>
+</ul>
+</li>
+</ol>
+<p>In addition to the above, there will be one “Master” class that will handle retrieving the database’s respective class and initializing it, along with handling transfers from one database to another.</p>
+<p>At first, this will only have CRUD operations and data caching. If time permits, more advanced features will be added, such as relations (joins), transaction rollback, relations, and other potentially database specific features (and emulating them on the software side).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/07/Initial-Planning/" data-id="wrkqy1sytvz5b2se" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Chapter-1-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" class="article-date">
+  <time datetime="2014-06-07T03:07:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/">Chapter 1 Problems</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>These are selected problems from chapter one of the textbook that I’m using</p>
+
+        
+          <p class="article-more-link">
+            <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" data-id="avj9ejjx0idfys08" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Week-Two" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" class="article-date">
+  <time datetime="2014-06-06T16:52:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/06/06/Week-Two/">Week Two</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up the course when the Python one comes around, on June 24th. I’ve also spent a great deal of time trying to come up with a project that would not only advance my own skills, but also benefit others. So far, I’ve been unable to determine one, but I’ve decided that an interesting way to begin the project would be to write my own custom ORM.<br>
+        
+          <p class="article-more-link">
+            <a href="/CMSI_486_Databases/2014/06/06/Week-Two/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Week-Two/" data-id="e8e9byqpcoyjb9fm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/07/01/week-five/">Week Five</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-four/">Week Four</a>
+          </li>
+        
+          <li>
+            <a href="/CMSI_486_Databases/2014/06/22/week-one/">Week One</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Alex Schneider<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/CMSI_486_Databases/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/CMSI_486_Databases/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/CMSI_486_Databases/js/script.js"></script>
+  </div>
+</body>
+</html>
