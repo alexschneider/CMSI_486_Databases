@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: pyORMatic | CMSI 486</title>
+  <title>Week Eight | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta content="website" property="og:type">
-<meta property="og:title">
-<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/categories/pyORMatic/" property="og:url">
+  <meta content="article" property="og:type">
+<meta content="Week Eight" property="og:title">
+<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/21/week-eight/" property="og:url">
 <meta property="og:image">
 <meta content="CMSI 486" property="og:site_name">
-<meta property="og:description">
+<meta content="I’m still down to the wire on this post, but at least I have more meaningful stuff to say. This week, as an overview, I managed to complete the MongoDB requriements early - last Tuesday, and spend all" property="og:description">
 <meta content="summary" name="twitter:card">
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -61,16 +61,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Initial-Planning" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-week-eight" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/07/Initial-Planning/" class="article-date">
-  <time datetime="2014-06-07T20:50:17.000Z" itemprop="datePublished">Jun 7th 2014</time>
+    <a href="/CMSI_486_Databases/2014/07/21/week-eight/" class="article-date">
+  <time datetime="2014-07-22T05:13:15.000Z" itemprop="datePublished">Jul 21st 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -80,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/CMSI_486_Databases/2014/06/07/Initial-Planning/">Initial Planning</a>
+    <h1 class="article-title" itemprop="name">
+      Week Eight
     </h1>
   
 
@@ -89,40 +87,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This will be my plan for pyORMatic, a python ORM project aimed at supporting as many free and open source database systems as physically possible.</p>
-<p>My application structure will have 3 separate layers.</p>
-<ol>
-<li>Database Class.<ul>
-<li>Handles connecting to the database and performs all the raw queries that are specific to that database. There will be one abstract database class that each individual database will extend. This will handle reading data from the database, placing data into the database, updating data, and deleting data. It will also handle describing the database schema and creating database schema, so the program can handle switching between databases with ease. Finally, it will handle creating all the table classes for the database.</li>
+        <p>I’m still down to the wire on this post, but at least I have more meaningful stuff to say. This week, as an overview, I managed to complete the MongoDB requriements early - last Tuesday, and spend all weekend working on pyORMatic (which, I’ve learned, doesn’t have a link on the page. Let’s <a href="https://github.com/alexschneider/pyORMatic" target="_blank">fix</a> that). I’ve also added a link to the pyORMatic page.</p>
+<p>I spent a good deal of time planning how I wanted to take my new ORM, and I think I’ve got a solid direction. Here are some of my considerations:</p>
+<ul>
+<li>I want to be able to store RICH objects<ul>
+<li>Unsurprisingly, Python has a <a href="https://docs.python.org/3.4/library/pickle.html" target="_blank">way to do it</a></li>
+<li>To facilitate storing and retrieving data, I am going to have a custom object type that is similar to a dictionary (users of my ORM can treat it like one). It also supports attribute style accessors.</li>
 </ul>
 </li>
-<li>Table Class<ul>
-<li>This will be more or less identical across all the different types of databases. This will handle creating an object for each individual row in the database (from here on out, known as a database_object). It will also handle keeping the database_objects in sync with the database, and schema changes for tables.</li>
+<li>I want to be able to quickly and easily switch between databases<ul>
+<li>As such, storing data in a human readable/queryable format is secondary. This means that all queries will have to be done through the ORM. Storage will be done in such a way that makes as much sense as possible (i.e. JSON format in Postgres, JSON as flat files, Blobs in MySQL), but as the data is binary encoded from pickling, this is secondary.</li>
 </ul>
 </li>
-<li>DatabaseObject class<ul>
-<li>This class will be dynamically created by the table class so that it matches the database schema exactly. The class will only support setting and retrieving variables. Any other database manipulation should be handled in the Table class.</li>
+<li>The ORM should be simple - it supports “putting” an object, “getting” an object, “modifying” an object, and “deleting” an object. Anything else must be handled by user of the ORM.</li>
+</ul>
+<p>Performance:</p>
+<ul>
+<li>I will let MySQL/Postgres/Mongo handle performance in their own way, doing my best to optimize queries to match the database’s best case uses within my constraints.</li>
+<li>For flat files, I toyed with implementing sort of a B-Tree system, using binary search trees, or using indexes. My goal was to avoid overwriting the entire file after each database write, instead preferring to either append to the file or update only the line necessary. I ended up deciding (mostly out of laziness) to just overwrite the entire file and handle searching internally.<ul>
+<li>Thankfully, Python has many methods that make sorting and searching easier. Due to the old adage: “If I didn’t write it, it occurs in asymptotically θ(1) time,” all my code occurs in constant time!</li>
+<li>On a more serious note, I was worried of becoming victim to <a href="http://c2.com/cgi/wiki?PrematureOptimization" target="_blank">premature optimization</a>. I decided to get the code working first, and go back for optimization afterward.</li>
 </ul>
 </li>
-</ol>
-<p>In addition to the above, there will be one “Master” class that will handle retrieving the database’s respective class and initializing it, along with handling transfers from one database to another.</p>
-<p>At first, this will only have CRUD operations and data caching. If time permits, more advanced features will be added, such as relations (joins), transaction rollback, relations, and other potentially database specific features (and emulating them on the software side).</p>
-<p><a href="https://github.com/alexschneider/pyORMatic" target="_blank">Repo Link</a></p>
+</ul>
+<p>R.E. Mongo - this is also going well. I’m still at 100% completion on homework and tests. The performance considerations were very interesting to me, and had a pretty significant impact on how I decided to construct the database. I toyed with the idea of using indexes, and I still may, but managing indexes is very complicated, especially considering the number one consideration that I have for my database - rich data storage. Because pickling is storing binary data, it is difficult to organize data in a certain way. I’ll keep doing research to see if it’s at all possible though. </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/07/Initial-Planning/" data-id="q0ttv1v5vo1cnsxj" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/21/week-eight/" data-id="chlyp799rsmeubvw" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/CMSI_486_Databases/2014/07/14/week-seven/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Week Seven</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-
-  
-  
 </section>
         
           <aside id="sidebar">
