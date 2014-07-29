@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Chapter 1 Problems | CMSI 486</title>
+  <title>Week Nine | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta content="article" property="og:type">
-<meta content="Chapter 1 Problems" property="og:title">
-<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" property="og:url">
+<meta content="Week Nine" property="og:title">
+<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/28/week-nine/" property="og:url">
 <meta property="og:image">
 <meta content="CMSI 486" property="og:site_name">
-<meta content="These are selected problems from chapter one of the textbook that I’m using" property="og:description">
+<meta content="I really need to be doing more stuff with the blog!
+I’m leaving for a two week trip to Alaska on Wednesday, which means that there will be no updates for the next couple of weeks.
+However, I plan on d" property="og:description">
 <meta content="summary" name="twitter:card">
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -61,14 +63,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Chapter-1-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-week-nine" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" class="article-date">
-  <time datetime="2014-06-07T03:07:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+    <a href="/CMSI_486_Databases/2014/07/28/week-nine/" class="article-date">
+  <time datetime="2014-07-29T03:26:14.000Z" itemprop="datePublished">Jul 28th 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -79,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Chapter 1 Problems
+      Week Nine
     </h1>
   
 
@@ -87,85 +89,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>These are selected problems from chapter one of the textbook that I’m using</p>
-<a id="more"></a>
+        <p>I really need to be doing more stuff with the blog!</p>
+<p>I’m leaving for a two week trip to Alaska on Wednesday, which means that there will be no updates for the next couple of weeks.</p>
+<p>However, I plan on doing the following:</p>
+<ul>
+<li>Finishing the MongoDB course - I have one more lesson, which I think I can do tomorrow, and the test, which I’ll have to try to make time to do in Alaska.</li>
+<li>Do a lot of work in the book - this is my time to read and do book problems. I haven’t really been doing much of those lately…</li>
+<li>Work on pyORMatic - this will depend on whether or not there’s time. I can always do pyORMatic after I get back, but I will have lots of long bus/train trips, so I can probably use my laptop for this.</li>
+<li>Take pictures! (Not really related to the course)</li>
+</ul>
+<p>However, I was busy with MongoDB over the past week. I learned about the aggregation framework, which is essentially analogous to SQL’s “clauses,” I.E. WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT, SUM, and COUNT. Since these statemenets are so integral to SQL (especially SELECT, WHERE, ORDER BY, etc), I never really thought about how they would translate to MongoDB, so I was kind of shocked when the majority of the work we did was without these aids. I suppose that the majority of MongoDB’s operations can be emulated in a programming language much more easily than SQL,</p>
+<p>Mongo’s versatility does come at a cost, however. Even something as simple as counting the number of orders in a database is extremely verbose:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>db.orders.aggregate( [
+   {
+     $<span class="keyword">group</span>: {
+        _id: <span class="keyword">null</span>,
+        <span class="keyword">count</span>: { $<span class="keyword">sum</span>: <span class="number">1</span> }
+     }
+   }
+] )
+</pre></td></tr></table></figure>
 
-<p>1.8. Identify some informal queries and update operations you would expect to apply to the database shown in Figure 1.2</p>
-<ul>
-<li>Select all students whose major is computer science</li>
-<li>Add a new course</li>
-<li>Change course’s instructor</li>
-<li>Select all students who have a GPA of above 3.5</li>
-<li>Show available course for a student to take based on prerequisites</li>
-</ul>
-<p>1.9. What is the difference between controlled and uncontrolled redundancy? Illustrate with examples.</p>
-<ul>
-<li>Redundancy involves storing the same information in more than one place, often to improve performance of queries</li>
-<li>Controlled redundancy is when the data is kept in sync across all of its locations. Often databases provide mechanisms towards this goal.</li>
-<li>Uncontrolled redundancy occurs when data is out of sync, two different records referring to the same thing have different values.</li>
-<li>Obviously, controlled redundancy is more desirable.</li>
-</ul>
-<p>1.10. Specify all the relationships among the records of the database shown in Figure 1.2.</p>
-<ul>
-<li>STUDENT is related to:<ul>
-<li>GRADE_REPORT</li>
-</ul>
-</li>
-<li>COURSE is related to:<ul>
-<li>SECTION</li>
-<li>PREREQUISITE</li>
-</ul>
-</li>
-<li>SECTION is related to:<ul>
-<li>COURSE</li>
-<li>GRADE_REPORT</li>
-</ul>
-</li>
-<li>GRADE_REPORT is related to:<ul>
-<li>STUDENT</li>
-<li>SECTION</li>
-</ul>
-</li>
-<li>PREREQUISITE is related to:<ul>
-<li>COURSE</li>
-</ul>
-</li>
-</ul>
-<p>1.11. Give some additional views that may be needed by other user groups for the database shown in Figure 1.2.</p>
-<ul>
-<li>Transcript (Students, courses, and grades)</li>
-<li>Course assignment (Students, courses, sections, and prerequisite)</li>
-<li>Change course listing (Section, course name)</li>
-</ul>
-<p>1.12. Cite some examples of integrity constraints that you think can apply to the database shown in Figure 1.2.</p>
-<ul>
-<li>Grade can only be ABCD or F</li>
-<li>Students can’t take more than a certain amount of classes or two of the same classes in the same semester and year</li>
-<li>A course can’t depend on itself as a prerequisite</li>
-</ul>
-<p>1.13. Give examples of systems in which it may make sense to use traditional file processing instead of a database approach.</p>
-<ul>
-<li>Limited resources - traditional file processing doesn’t require much storage space or processor time.</li>
-<li>Extremely specific applications - Traditional file processing is easier to read and write to for a programmer and may not need the overhead of a database if only one user is going to use it at a time.</li>
-<li>Data that doesn’t fit well in a database - Some data is too big for a database to handle reliably, or is a specific specification that makes it unsuitable for databases.</li>
-</ul>
-<p>1.14. Consider Figure 1.2.<br><strong>a.</strong> If the name of the ‘CS’ (Computer Science) Department changes to ‘CSSE’ (Computer Science and Software Engineering) Department and the corresponding prefix for the course number also changes, identify the columns in the database that would need to be updated</p>
-<ul>
-<li>STUDENT/Major</li>
-<li>COURSE/Course_number and COURSE/Department</li>
-<li>PREREQUISITE/Course_number and PREREQUISITE/Prerequisite_number</li>
-</ul>
-<p><strong>b.</strong> Can you restructure the columns in the COURSE, SECTION, and PREREQUISITE tables sot hat only one column will need to be updated?</p>
-<ul>
-<li>Add a new table called DEPARTMENT with two columns, Department_name and Department_identifier.</li>
-<li>Replace STUDENT/Major and COURSE/Department with the Department_identifier</li>
-<li>Ensure that the Course_numbers are unique, and remove the letter prefix from them. Add a new column in all the tables that have the Course_numbers column called Course_department, fill in with Department_identifier</li>
-</ul>
+<p>Compare to SQL:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">COUNT</span>(*) <span class="keyword">FROM</span> orders</span>
+</pre></td></tr></table></figure>
+
+<p>More examples can be found <a href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/" target="_blank">here</a></p>
+<p>Mongo’s way of doing things makes longer, more complicated queries much simpler than MySQL, since there’s a practically infinite amount of nesting that can be done, and it can be done in a much more intuitive way than SQL. However, there’s a number of little gotchas that make things rather annoying (though this could easily be my fault for being so used to SQL).</p>
+<p>Thankfully, my perfect homework score still stands (despite me having to guess on one of the problems…). </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" data-id="4lgm24drjt407zwd" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/28/week-nine/" data-id="6nimz7q5lkq6jdgp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,19 +139,10 @@
     
 <nav id="article-nav">
   
-    <a href="/CMSI_486_Databases/2014/06/07/Initial-Planning/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Initial Planning
-        
-      </div>
-    </a>
   
-  
-    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/07/21/week-eight/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Week Two</div>
+      <div class="article-nav-title">Week Eight</div>
     </a>
   
 </nav>
