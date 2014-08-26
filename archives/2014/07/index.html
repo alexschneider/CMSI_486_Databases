@@ -5,13 +5,16 @@
   
   <title>Archives: 2014/7 | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta content="website" property="og:type">
-<meta property="og:title">
-<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/archives/2014/07/" property="og:url">
-<meta property="og:image">
-<meta content="CMSI 486" property="og:site_name">
-<meta property="og:description">
-<meta content="summary" name="twitter:card">
+  <meta name="description" content="Weekly blog for the databases class, taken over the summer of 2014 with Mike Megally">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CMSI 486">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/archives/2014/07/">
+<meta property="og:site_name" content="CMSI 486">
+<meta property="og:description" content="Weekly blog for the databases class, taken over the summer of 2014 with Mike Megally">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CMSI 486">
+<meta name="twitter:description" content="Weekly blog for the databases class, taken over the summer of 2014 with Mike Megally">
+
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
   
@@ -20,6 +23,7 @@
   
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/CMSI_486_Databases/css/style.css" type="text/css">
+
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 </head>
@@ -70,7 +74,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -100,37 +104,19 @@
 </ul>
 <p>However, I was busy with MongoDB over the past week. I learned about the aggregation framework, which is essentially analogous to SQL’s “clauses,” I.E. WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT, SUM, and COUNT. Since these statemenets are so integral to SQL (especially SELECT, WHERE, ORDER BY, etc), I never really thought about how they would translate to MongoDB, so I was kind of shocked when the majority of the work we did was without these aids. I suppose that the majority of MongoDB’s operations can be emulated in a programming language much more easily than SQL,</p>
 <p>Mongo’s versatility does come at a cost, however. Even something as simple as counting the number of orders in a database is extremely verbose:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>db.orders.aggregate( [
-   {
-     $<span class="keyword">group</span>: {
-        _id: <span class="keyword">null</span>,
-        <span class="keyword">count</span>: { $<span class="keyword">sum</span>: <span class="number">1</span> }
-     }
-   }
-] )
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">db.orders.aggregate( [</div><div class="line">   {</div><div class="line">     $<span class="keyword">group</span>: {</div><div class="line">        _id: <span class="keyword">null</span>,</div><div class="line">        <span class="keyword">count</span>: { $<span class="keyword">sum</span>: <span class="number">1</span> }</div><div class="line">     }</div><div class="line">   }</div><div class="line">] )</div></pre></td></tr></table></figure>
 
 <p>Compare to SQL:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">COUNT</span>(*) <span class="keyword">FROM</span> orders</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> orders</span></div></pre></td></tr></table></figure>
 
-<p>More examples can be found <a href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/" target="_blank">here</a></p>
+<p>More examples can be found <a href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/" target="_blank" rel="external">here</a></p>
 <p>Mongo’s way of doing things makes longer, more complicated queries much simpler than MySQL, since there’s a practically infinite amount of nesting that can be done, and it can be done in a much more intuitive way than SQL. However, there’s a number of little gotchas that make things rather annoying (though this could easily be my fault for being so used to SQL).</p>
 <p>Thankfully, my perfect homework score still stands (despite me having to guess on one of the problems…). </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/28/week-nine/" data-id="6nimz7q5lkq6jdgp" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/28/week-nine/" data-id="koimdbkdi36s1z2r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -147,7 +133,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -166,11 +152,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I’m still down to the wire on this post, but at least I have more meaningful stuff to say. This week, as an overview, I managed to complete the MongoDB requriements early - last Tuesday, and spend all weekend working on pyORMatic (which, I’ve learned, doesn’t have a link on the page. Let’s <a href="https://github.com/alexschneider/pyORMatic" target="_blank">fix</a> that). I’ve also added a link to the pyORMatic page.</p>
+        <p>I’m still down to the wire on this post, but at least I have more meaningful stuff to say. This week, as an overview, I managed to complete the MongoDB requriements early - last Tuesday, and spend all weekend working on pyORMatic (which, I’ve learned, doesn’t have a link on the page. Let’s <a href="https://github.com/alexschneider/pyORMatic" target="_blank" rel="external">fix</a> that). I’ve also added a link to the pyORMatic page.</p>
 <p>I spent a good deal of time planning how I wanted to take my new ORM, and I think I’ve got a solid direction. Here are some of my considerations:</p>
 <ul>
 <li>I want to be able to store RICH objects<ul>
-<li>Unsurprisingly, Python has a <a href="https://docs.python.org/3.4/library/pickle.html" target="_blank">way to do it</a></li>
+<li>Unsurprisingly, Python has a <a href="https://docs.python.org/3.4/library/pickle.html" target="_blank" rel="external">way to do it</a></li>
 <li>To facilitate storing and retrieving data, I am going to have a custom object type that is similar to a dictionary (users of my ORM can treat it like one). It also supports attribute style accessors.</li>
 </ul>
 </li>
@@ -185,7 +171,7 @@
 <li>I will let MySQL/Postgres/Mongo handle performance in their own way, doing my best to optimize queries to match the database’s best case uses within my constraints.</li>
 <li>For flat files, I toyed with implementing sort of a B-Tree system, using binary search trees, or using indexes. My goal was to avoid overwriting the entire file after each database write, instead preferring to either append to the file or update only the line necessary. I ended up deciding (mostly out of laziness) to just overwrite the entire file and handle searching internally.<ul>
 <li>Thankfully, Python has many methods that make sorting and searching easier. Due to the old adage: “If I didn’t write it, it occurs in asymptotically θ(1) time,” all my code occurs in constant time!</li>
-<li>On a more serious note, I was worried of becoming victim to <a href="http://c2.com/cgi/wiki?PrematureOptimization" target="_blank">premature optimization</a>. I decided to get the code working first, and go back for optimization afterward.</li>
+<li>On a more serious note, I was worried of becoming victim to <a href="http://c2.com/cgi/wiki?PrematureOptimization" target="_blank" rel="external">premature optimization</a>. I decided to get the code working first, and go back for optimization afterward.</li>
 </ul>
 </li>
 </ul>
@@ -194,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/21/week-eight/" data-id="217hqgfxf81v5nsn" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/21/week-eight/" data-id="bi1uuw06tikv9shi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,7 +197,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -243,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/14/week-seven/" data-id="4exfwp7kso3tdegv" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/14/week-seven/" data-id="0e1yr621dtlgf328" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +246,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -282,12 +268,12 @@
         <p>This week, I’ve done the 2nd week of the MongoDB course. Thankfully, unlike last week, I managed to submit the homework on time. Mongo has been taking up a large majority of the time that I’ve been able to spend on the databases class, but hopefully, I’ll get to spend more time next week.</p>
 <p>One of the things that I personally believe is valuable and increases the depth of knowledge out of a course is teaching others. I’ve been trying to be active on the MongoDB forums, answering questions that I have the ability to. At first, this was very difficult, but I’ve been able to do it more and more easily. It’s always nice to be thanked, as well.</p>
 <p>The primary goal this week for the Mongo course was CRUD operations. One thing that I’m not a huge fan of is Mongo’s schemaless design. All of the operations feel fairly arbitrary and cobbled together. Also, though it is nice to have native extensions in the language that you are using, there are some annoyances. It’s difficult to translate database queries between languages, since they use the programming language’s design features. Thankfully, python has data structures that are more or less analogous to Javascript’s Object and Array types, but for a language like Java, C, or others, I imagine it’s much more difficult to wrap your head around.</p>
-<p>As a result, even though Mongo has a rich querying langauge that’s pretty well represented by PyMongo, I still prefer to do the bare minimum with PyMongo, and perform all the sorting, limits, and manipulations within Python itself. I’ve been trying to force myself to do things with PyMongo as much as possible, but it leads to a lot of frustrated cries of <a href="http://gag.googlecode.com/svn/trunk/javadoc/com/google/gag/annotation/remark/ThisWouldBeOneLineIn.html" target="_blank">“THIS COULD BE DONE IN ONE LINE!”</a></p>
+<p>As a result, even though Mongo has a rich querying langauge that’s pretty well represented by PyMongo, I still prefer to do the bare minimum with PyMongo, and perform all the sorting, limits, and manipulations within Python itself. I’ve been trying to force myself to do things with PyMongo as much as possible, but it leads to a lot of frustrated cries of <a href="http://gag.googlecode.com/svn/trunk/javadoc/com/google/gag/annotation/remark/ThisWouldBeOneLineIn.html" target="_blank" rel="external">“THIS COULD BE DONE IN ONE LINE!”</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/07/week-six/" data-id="jysd17jac6x80909" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/07/week-six/" data-id="l3qakbdsgk7uem26" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +290,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -333,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/01/week-five/" data-id="knwrlzsv2ekp6694" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/01/week-five/" data-id="esvt1dixfeq39i1s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -352,7 +338,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -365,7 +351,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -377,23 +363,23 @@
       <ul>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/28/week-nine/">Week Nine</a>
+            <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/">Week Forteen</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/21/week-eight/">Week Eight</a>
+            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">Chapter 5 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+            <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/">Chapter 4 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+            <a href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/01/week-five/">Week Five</a>
+            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
           </li>
         
       </ul>
@@ -430,7 +416,8 @@
 <script src="/CMSI_486_Databases/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script type="text/javascript" src="/CMSI_486_Databases/js/script.js"></script>
+<script src="/CMSI_486_Databases/js/script.js" type="text/javascript"></script>
+
   </div>
 </body>
 </html>

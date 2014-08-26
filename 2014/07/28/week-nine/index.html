@@ -5,15 +5,22 @@
   
   <title>Week Nine | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta content="article" property="og:type">
-<meta content="Week Nine" property="og:title">
-<meta content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/28/week-nine/" property="og:url">
-<meta property="og:image">
-<meta content="CMSI 486" property="og:site_name">
-<meta content="I really need to be doing more stuff with the blog!
+  <meta name="description" content="I really need to be doing more stuff with the blog!
 I’m leaving for a two week trip to Alaska on Wednesday, which means that there will be no updates for the next couple of weeks.
-However, I plan on d" property="og:description">
-<meta content="summary" name="twitter:card">
+However, I plan on d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week Nine">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/28/week-nine/">
+<meta property="og:site_name" content="CMSI 486">
+<meta property="og:description" content="I really need to be doing more stuff with the blog!
+I’m leaving for a two week trip to Alaska on Wednesday, which means that there will be no updates for the next couple of weeks.
+However, I plan on d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week Nine">
+<meta name="twitter:description" content="I really need to be doing more stuff with the blog!
+I’m leaving for a two week trip to Alaska on Wednesday, which means that there will be no updates for the next couple of weeks.
+However, I plan on d">
+
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
   
@@ -22,6 +29,7 @@ However, I plan on d" property="og:description">
   
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/CMSI_486_Databases/css/style.css" type="text/css">
+
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 </head>
@@ -70,7 +78,7 @@ However, I plan on d" property="og:description">
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
   </div>
 
   </div>
@@ -100,37 +108,19 @@ However, I plan on d" property="og:description">
 </ul>
 <p>However, I was busy with MongoDB over the past week. I learned about the aggregation framework, which is essentially analogous to SQL’s “clauses,” I.E. WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT, SUM, and COUNT. Since these statemenets are so integral to SQL (especially SELECT, WHERE, ORDER BY, etc), I never really thought about how they would translate to MongoDB, so I was kind of shocked when the majority of the work we did was without these aids. I suppose that the majority of MongoDB’s operations can be emulated in a programming language much more easily than SQL,</p>
 <p>Mongo’s versatility does come at a cost, however. Even something as simple as counting the number of orders in a database is extremely verbose:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>db.orders.aggregate( [
-   {
-     $<span class="keyword">group</span>: {
-        _id: <span class="keyword">null</span>,
-        <span class="keyword">count</span>: { $<span class="keyword">sum</span>: <span class="number">1</span> }
-     }
-   }
-] )
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">db.orders.aggregate( [</div><div class="line">   {</div><div class="line">     $<span class="keyword">group</span>: {</div><div class="line">        _id: <span class="keyword">null</span>,</div><div class="line">        <span class="keyword">count</span>: { $<span class="keyword">sum</span>: <span class="number">1</span> }</div><div class="line">     }</div><div class="line">   }</div><div class="line">] )</div></pre></td></tr></table></figure>
 
 <p>Compare to SQL:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">COUNT</span>(*) <span class="keyword">FROM</span> orders</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> orders</span></div></pre></td></tr></table></figure>
 
-<p>More examples can be found <a href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/" target="_blank">here</a></p>
+<p>More examples can be found <a href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/" target="_blank" rel="external">here</a></p>
 <p>Mongo’s way of doing things makes longer, more complicated queries much simpler than MySQL, since there’s a practically infinite amount of nesting that can be done, and it can be done in a much more intuitive way than SQL. However, there’s a number of little gotchas that make things rather annoying (though this could easily be my fault for being so used to SQL).</p>
 <p>Thankfully, my perfect homework score still stands (despite me having to guess on one of the problems…). </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/28/week-nine/" data-id="6nimz7q5lkq6jdgp" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/28/week-nine/" data-id="koimdbkdi36s1z2r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,6 +128,15 @@ However, I plan on d" property="og:description">
   
     
 <nav id="article-nav">
+  
+    <a href="/CMSI_486_Databases/2014/08/17/chapter-2-problems/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Chapter 2 Problems
+        
+      </div>
+    </a>
   
   
     <a href="/CMSI_486_Databases/2014/07/21/week-eight/" id="article-nav-older" class="article-nav-link-wrap">
@@ -158,7 +157,7 @@ However, I plan on d" property="og:description">
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly Updates/">Weekly Updates</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -171,7 +170,7 @@ However, I plan on d" property="og:description">
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -183,23 +182,23 @@ However, I plan on d" property="og:description">
       <ul>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/28/week-nine/">Week Nine</a>
+            <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/">Week Forteen</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/21/week-eight/">Week Eight</a>
+            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">Chapter 5 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+            <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/">Chapter 4 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+            <a href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/07/01/week-five/">Week Five</a>
+            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
           </li>
         
       </ul>
@@ -236,7 +235,8 @@ However, I plan on d" property="og:description">
 <script src="/CMSI_486_Databases/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script type="text/javascript" src="/CMSI_486_Databases/js/script.js"></script>
+<script src="/CMSI_486_Databases/js/script.js" type="text/javascript"></script>
+
   </div>
 </body>
 </html>

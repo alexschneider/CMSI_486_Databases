@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Week Seven | CMSI 486</title>
+  <title>Chapter 2 Problems | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a">
+  <meta name="description" content="These are selected problems from chapter two of the textbook that I’m using">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Week Seven">
-<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/14/week-seven/">
+<meta property="og:title" content="Chapter 2 Problems">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/08/17/chapter-2-problems/">
 <meta property="og:site_name" content="CMSI 486">
-<meta property="og:description" content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a">
+<meta property="og:description" content="These are selected problems from chapter two of the textbook that I’m using">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week Seven">
-<meta name="twitter:description" content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a">
+<meta name="twitter:title" content="Chapter 2 Problems">
+<meta name="twitter:description" content="These are selected problems from chapter two of the textbook that I’m using">
 
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -65,14 +65,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-week-seven" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-chapter-2-problems" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/07/14/week-seven/" class="article-date">
-  <time datetime="2014-07-14T15:09:25.000Z" itemprop="datePublished">Jul 14th 2014</time>
+    <a href="/CMSI_486_Databases/2014/08/17/chapter-2-problems/" class="article-date">
+  <time datetime="2014-08-17T20:27:13.000Z" itemprop="datePublished">Aug 17th 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
   </div>
 
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Week Seven
+      Chapter 2 Problems
     </h1>
   
 
@@ -91,20 +91,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a lot of time with the textbook and catching with pyORMatic then. I’ll try to make more advances over the coming weeks, as they ought to be less hectic than the last couple of weeks.</p>
-<p>This week in Mongo was about Schema design. More specifically, about how Schemaless design is “great.” I’ve ranted a little in last week’s post about this, but here’s some more:</p>
+        <p>These are selected problems from chapter two of the textbook that I’m using</p>
+<a id="more"></a>
+
+<p>2.12. Think of different users for the database shown in Figure 1.2. What types of applications would each user need? To which user category would each belong, and what type of interface would each need?</p>
 <ul>
-<li>It is nice to have a rich document design that can have many layers. This reduces the number of documents/tables needed to store related information. As such, One-One and One-Many relations are modeled quite easily in Mongo, assuming the data being stored is only pertinent to the parent document.  </li>
-<li>However, having such a rich document design has drawbacks, since it makes it difficult to have normalized data - that is, data that isn’t repeated or replicated. Ideally, if something needed changing, one would only need to change it in one location.</li>
-<li>Furthermore, relations between tables have to be performed inside the programming language, rather than inside the database. There may be a way that I haven’t learned yet to do relations within Mongo, but what I have learned just feels very clunky.</li>
+<li>Some of the different users could include students, professors, advisors, and administrators.</li>
+<li>Student view:<ul>
+<li>View grades</li>
+<li>View classes</li>
+<li>Register for classes</li>
 </ul>
-<p>It felt like there were several workarounds that were needed to accurately model the relations. In the Mongo videos, the examples that they gave amounted to: “You would never actually need to do this with correct schema design”, or “We don’t need to store this data because it would contradict with our schema design”.</p>
-<p>For the homework this week, I did write a couple of one liners in python that were pretty awesome. A little bit of an aside: Functional constructs in langauges are amazing. They allow code to be incredibly short and once one understands them, can pack a ton of power into a single line of code.</p>
+</li>
+<li>Professor view:<ul>
+<li>View/set grades for all students in class</li>
+<li>Set pre-requisites for class</li>
+<li>Add or remove class</li>
+</ul>
+</li>
+<li>Administrator view:<ul>
+<li>View all student grades</li>
+<li>View student grades by professor/class</li>
+<li>Add or remove student to/from class</li>
+</ul>
+</li>
+</ul>
+<p>2.14. If you were designing a Web-based system to make airline reservations and sell airline tickets, which DBMS architecture would you chose from Section 2.5? Why? Why would the other architectures not be a good choice?</p>
+<p>I would probably use a three tier architecture. The reason being that airline tickets, by their nature, are very decentralized, and there’s the possibility of needing to access or create the reservations and tickets from anywhere in the world by a large amount of audiences (such as the gate agents, the consumers, administrators at all levels, etc). Each audience requires a different view relating to the information that is shown to them, so the only way to show such a versatile view is by using the three tiered architecture. A two tiered architecture would require specialized applications for every view and would not translate well to the needs of the airliners.</p>
+<p>2.15. Consider Figure 2.1. In addition to constraints relating the values of columns in one table to columns in another table, there are also constraints that impose restrictions on values in a column or a combination of columns within a table. One such constraint dictates that a column or a group of columns must be unique across all rows in the table. For example, in the STUDENT table, the Student_number column must be unique (to prevent two different students from having the same Student_number ). Identify the column or the group of columns in the other tables that must be unique across all rows in the table.</p>
+<ul>
+<li>Course:<ul>
+<li>Course_number</li>
+</ul>
+</li>
+<li>Prerequisite:<ul>
+<li>Course_number and Prerequisite_number</li>
+</ul>
+</li>
+<li>Section:<ul>
+<li>Section_identifier</li>
+</ul>
+</li>
+<li>Grade_report:<ul>
+<li>Student_number and Section_identifier</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/14/week-seven/" data-id="0e1yr621dtlgf328" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/17/chapter-2-problems/" data-id="yi64eexoqtj5ia6r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,19 +150,19 @@
     
 <nav id="article-nav">
   
-    <a href="/CMSI_486_Databases/2014/07/21/week-eight/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Week Eight
+          Chapter 3 Problems
         
       </div>
     </a>
   
   
-    <a href="/CMSI_486_Databases/2014/07/07/week-six/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/07/28/week-nine/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Week Six</div>
+      <div class="article-nav-title">Week Nine</div>
     </a>
   
 </nav>

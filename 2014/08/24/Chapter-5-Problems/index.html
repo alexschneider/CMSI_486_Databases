@@ -3,17 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Week Seven | CMSI 486</title>
+  <title>Chapter 5 Problems | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a">
+  <meta name="description" content="Notes:
+
+SQL also has some advanced features beyond basic CRUD, like TRIGGERs and ASSERTIONs
+SQL treats NULLs in a specific way regarding booleans - statements only return TRUE/FALSE if they are short-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Week Seven">
-<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/07/14/week-seven/">
+<meta property="og:title" content="Chapter 5 Problems">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">
 <meta property="og:site_name" content="CMSI 486">
-<meta property="og:description" content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a">
+<meta property="og:description" content="Notes:
+
+SQL also has some advanced features beyond basic CRUD, like TRIGGERs and ASSERTIONs
+SQL treats NULLs in a specific way regarding booleans - statements only return TRUE/FALSE if they are short-">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week Seven">
-<meta name="twitter:description" content="Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a">
+<meta name="twitter:title" content="Chapter 5 Problems">
+<meta name="twitter:description" content="Notes:
+
+SQL also has some advanced features beyond basic CRUD, like TRIGGERs and ASSERTIONs
+SQL treats NULLs in a specific way regarding booleans - statements only return TRUE/FALSE if they are short-">
 
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -65,16 +74,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-week-seven" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Chapter-5-Problems" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/07/14/week-seven/" class="article-date">
-  <time datetime="2014-07-14T15:09:25.000Z" itemprop="datePublished">Jul 14th 2014</time>
+    <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/" class="article-date">
+  <time datetime="2014-08-25T03:21:07.000Z" itemprop="datePublished">Aug 24th 2014</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -83,7 +88,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Week Seven
+      Chapter 5 Problems
     </h1>
   
 
@@ -91,20 +96,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a lot of time with the textbook and catching with pyORMatic then. I’ll try to make more advances over the coming weeks, as they ought to be less hectic than the last couple of weeks.</p>
-<p>This week in Mongo was about Schema design. More specifically, about how Schemaless design is “great.” I’ve ranted a little in last week’s post about this, but here’s some more:</p>
+        <p>Notes:</p>
 <ul>
-<li>It is nice to have a rich document design that can have many layers. This reduces the number of documents/tables needed to store related information. As such, One-One and One-Many relations are modeled quite easily in Mongo, assuming the data being stored is only pertinent to the parent document.  </li>
-<li>However, having such a rich document design has drawbacks, since it makes it difficult to have normalized data - that is, data that isn’t repeated or replicated. Ideally, if something needed changing, one would only need to change it in one location.</li>
-<li>Furthermore, relations between tables have to be performed inside the programming language, rather than inside the database. There may be a way that I haven’t learned yet to do relations within Mongo, but what I have learned just feels very clunky.</li>
+<li>SQL also has some advanced features beyond basic CRUD, like TRIGGERs and ASSERTIONs</li>
+<li>SQL treats NULLs in a specific way regarding booleans - statements only return TRUE/FALSE if they are short-circuitable with the comparsion</li>
+<li>SQL allows us to check for nulls by using ‘IS’ (like python!)</li>
+<li>SQL allows sets and nested queries<ul>
+<li>Keywords like ANY or ALL can be useful for nested queries and using comparison operators</li>
+<li>Nested query scope is similar to programming languages - the scope refers to the innermost nested query</li>
 </ul>
-<p>It felt like there were several workarounds that were needed to accurately model the relations. In the Mongo videos, the examples that they gave amounted to: “You would never actually need to do this with correct schema design”, or “We don’t need to store this data because it would contradict with our schema design”.</p>
-<p>For the homework this week, I did write a couple of one liners in python that were pretty awesome. A little bit of an aside: Functional constructs in langauges are amazing. They allow code to be incredibly short and once one understands them, can pack a ton of power into a single line of code.</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/14/week-seven/" data-id="0e1yr621dtlgf328" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/" data-id="4prq5eyiv49bgxon" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,19 +120,19 @@
     
 <nav id="article-nav">
   
-    <a href="/CMSI_486_Databases/2014/07/21/week-eight/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Week Eight
+          Week Forteen
         
       </div>
     </a>
   
   
-    <a href="/CMSI_486_Databases/2014/07/07/week-six/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Week Six</div>
+      <div class="article-nav-title">Chapter 4 Problems</div>
     </a>
   
 </nav>
