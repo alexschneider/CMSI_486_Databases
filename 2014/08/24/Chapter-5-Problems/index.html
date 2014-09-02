@@ -106,7 +106,50 @@ SQL treats NULLs in a specific way regarding booleans - statements only return T
 <li>Nested query scope is similar to programming languages - the scope refers to the innermost nested query</li>
 </ul>
 </li>
+<li>Exists - check to see if something is there<ul>
+<li>Can be used with “EXCEPT” as well to provide conditions</li>
 </ul>
+</li>
+<li>Distinct - for explicit sets</li>
+<li>AS for renaming stuff</li>
+<li>Joins…<ul>
+<li>Default is inner</li>
+<li>left and right are cool too</li>
+</ul>
+</li>
+<li>Aggregation - similar to mongodb, grouping, count, sum, max, min, avg, etc.<ul>
+<li>Having - groups with conditions</li>
+</ul>
+</li>
+<li>Triggers and assertions:<ul>
+<li>Assertions for enforcing constraints (and preventing updates when something doesn’t meet them)</li>
+<li>Triggers for creating actions when certain events occur, such as updates or deletes</li>
+</ul>
+</li>
+<li>Views<ul>
+<li>Single table derived from other tables that can have queries executed on. Will always remain up to date.</li>
+<li>View updating is complicated. It can generally be passed through, but not in certain conditions. Usually views are not updatable.</li>
+</ul>
+</li>
+<li>Schema changes<ul>
+<li>Dropping - can be done in a cascading or restricted fashion (cascading means dropping all references, restrict prevents dropping if any references exist)</li>
+<li>Alter - add or remove columns, or change column properties</li>
+</ul>
+</li>
+</ul>
+<p><a id="more"></a><br>5.5. Specify the following queries on the database in Figure 3.5 in SQL. Show the query results if each query is applied to the database in Figure 3.6.<br>a. For each department whose average employee salary is more than $30,000, retrieve the department name and the number of employees working for that department.<br>b. Suppose that we want the number of male employees in each department making more than $30,000, rather than all employees (as in Exercise 5.4a). Can we specify this query in SQL? Why or why not?</p>
+<p>a.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> d.Dname, <span class="keyword">count</span>(*) <span class="keyword">FROM</span> DEPARTMENT d</span></div><div class="line">    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> EMPLOYEE e <span class="keyword">ON</span> d.Dnumber=e.Dno</div><div class="line">    <span class="keyword">WHERE</span> (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(Salary) <span class="keyword">FROM</span> EMPLOYEE <span class="keyword">WHERE</span> Dno=d.Dnumber) &gt; <span class="number">30000</span></div><div class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> d.Dname</div></pre></td></tr></table></figure>
+
+<p>b. Just needs another where clause.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> d.Dname, <span class="keyword">count</span>(*) <span class="keyword">FROM</span> DEPARTMENT d</span></div><div class="line">    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> EMPLOYEE e <span class="keyword">ON</span> d.Dnumber=e.Dno</div><div class="line">    <span class="keyword">WHERE</span> e.Sex=<span class="string">'M'</span> <span class="keyword">AND</span> e.Salary &gt; <span class="number">30000</span></div><div class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> d.Dname</div></pre></td></tr></table></figure>
+
+<p>5.6. Specify the following queries in SQL on the database schema in Figure 1.2.<br>a. Retrieve the names and major departments of all straight-A students (students who have a grade of A in all their courses).<br>b. Retrieve the names and major departments of all students who do not have a grade of A in any of their courses.</p>
+<p>a. SELECT Name, Major FROM STUDENT WHERE Student_number NOT IN (SELECT Student_number FROM GRADE_REPORT WHERE Grade != ‘A’)<br>b. SELECT Name, Major FROM STUDENT WHERE Student_number NOT IN (SELECT Student_number FROM GRADE_REPORT WHERE Grade = ‘A’)</p>
+<p>5.7. In SQL, specify the following queries on the database in Figure 3.5 using the concept of nested queries and concepts described in this chapter.<br>a. Retrieve the names of all employees who work in the department that has the employee with the highest salary among all employees.<br>b. Retrieve the names of all employees whose supervisor’s supervisor has ‘888665555’ for Ssn .<br>c. Retrieve the names of employees who make at least $10,000 more than the employee who is paid the least in the company.</p>
+<p>a. SELECT Fname, Minit, Lname FROM EMPLOYEE WHERE Dno IN (SELECT Dno FROM EMPLOYEE ORDER BY Salary LIMIT 1) — Can’t really use max here without causing a syntax error<br>b. SELECT Fname, Minit, Lname FROM EMPLOYEE WHERE Super_ssn IN (SELECT Ssn IN EMPLOYEE WHERE Super_ssn=‘888665555’)<br>c. SELECT Fname, Minit, Lname FROM EMPLOYEE WHERE Salary - 10000 &gt; (SELECT Salary FROM EMPLOYEE ORDER BY Salary ASC LIMIT 1)</p>
+<p>5.8. Specify the following views in SQL on the COMPANY database schema shown in Figure 3.5.<br>a. A view that has the department name, manager name, and manager salary for every department.<br>b. A view that has the employee name, supervisor name, and employee salary for each employee who works in the ‘Research’ department.<br>c. A view that has the project name, controlling department name, number of employees, and total hours worked per week on the project for each project.<br>d. A view that has the project name, controlling department name, number of employees, and total hours worked per week on the project for each project with more than one employee working on it.</p>
+<p>a. CREATE VIEW A(DepartmentName, ManagerName, ManagerSalary) AS SELECT d.Dname, e.Fname, e.Salary FROM DEPARTMENT d INNER JOIN EMPLOYEE e ON d.Mgr_ssn=e.Ssn<br>b. CREATE VIEW B(EmployeeName, SupervisorName, EmployeeSalary) AS SELECT e.Fname, s.Fname, e.Salary FROM EMPLOYEE e INNER JOIN EMPLOYEE s ON e.Super_ssn=s.Ssn<br>c. CREATE VIEW C(ProjectName, DepartmentName, NumberEmployees, TotalHoursWorked) AS p.Pname, d.Dname, count(e.<code>*</code>), sum(h.hours) FROM DEPARTMENT d INNER JOIN PROJECT p ON d.Dnumber=p.Dnum INNER JOIN EMPLOYEE e ON d.Dnumber=e.Dno INNER JOIN WORKS_ON h ON p.Pnumber=h.Pno GROUP BY p.Pname<br>d. CREATE VIEW D(ProjectName, DepartmentName, NumberEmployees, TotalHoursWorked) AS p.Pname, d.Dname, count(e.<code>*</code>), sum(h.hours) FROM DEPARTMENT d INNER JOIN PROJECT p ON d.Dnumber=p.Dnum INNER JOIN EMPLOYEE e ON d.Dnumber=e.Dno INNER JOIN WORKS_ON h ON p.Pnumber=h.Pno GROUP BY p.Pname WHERE (SELECT count(<code>*</code>) FROM WORKS_ON GROUP BY Pno) &gt; 1</p>
 
       
     </div>
@@ -148,7 +191,7 @@ SQL treats NULLs in a specific way regarding booleans - statements only return T
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -161,7 +204,7 @@ SQL treats NULLs in a specific way regarding booleans - statements only return T
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/09">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -173,23 +216,23 @@ SQL treats NULLs in a specific way regarding booleans - statements only return T
       <ul>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/">Week Forteen</a>
+            <a href="/CMSI_486_Databases/2014/09/01/F1-Database/">F1 Database</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">Chapter 5 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/">Pros and Cons of Mongo Db</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/">Chapter 4 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/">Methods and Procedures</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/">Chapter 18 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/">Chapter 17 Problems</a>
           </li>
         
       </ul>

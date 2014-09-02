@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Week Two | CMSI 486</title>
+  <title>Methods and Procedures | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+  <meta name="description" content="Unfortunately, I cannot post the research paper that I’ve been involved with here, but here is a bit of a writeup about it:
+There had already been a database system set up prior to me joining the proj">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Week Two">
-<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/06/Week-Two/">
+<meta property="og:title" content="Methods and Procedures">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/">
 <meta property="og:site_name" content="CMSI 486">
-<meta property="og:description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+<meta property="og:description" content="Unfortunately, I cannot post the research paper that I’ve been involved with here, but here is a bit of a writeup about it:
+There had already been a database system set up prior to me joining the proj">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week Two">
-<meta name="twitter:description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+<meta name="twitter:title" content="Methods and Procedures">
+<meta name="twitter:description" content="Unfortunately, I cannot post the research paper that I’ve been involved with here, but here is a bit of a writeup about it:
+There had already been a database system set up prior to me joining the proj">
 
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -65,16 +68,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Week-Two" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Methods-and-Procedures" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" class="article-date">
-  <time datetime="2014-06-06T16:52:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+    <a href="/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/" class="article-date">
+  <time datetime="2014-09-02T02:03:48.000Z" itemprop="datePublished">Sep 1st 2014</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -83,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Week Two
+      Methods and Procedures
     </h1>
   
 
@@ -91,30 +90,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up the course when the Python one comes around, on June 24th. I’ve also spent a great deal of time trying to come up with a project that would not only advance my own skills, but also benefit others. So far, I’ve been unable to determine one, but I’ve decided that an interesting way to begin the project would be to write my own custom ORM.<br><a id="more"></a><br>To kick start the discussion, here’s a quote from wikipedia on what an ORM is:</p>
-<blockquote>
-
-<p>Object-relational mapping in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, in effect, a “virtual object database” that can be used from within the programming language.</p>
-<footer><strong>Wikipedia</strong><cite><a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank" rel="external">Object Relational Mapping</a></cite></footer></blockquote>
-
-
-<p>I had some experience with writing an ORM when I was doing Project 21 last semester, but it was very basic, rudimentary, and targeted towards Postgres and the specific app that we were writing. Ideally, the ORM that I write will be database agnostic - that is, one can pick any type of database to store their data - and be highly generalized, so that any application can easily use it. My main grievance is that there is not often one single interface that allows switching between a large number of databases. Since I haven’t really used any ORMs before, I think this will be a great way to understand how databases interact with the application layer. Once I’m done, I can compare it to established ORMs, and see how the decisions I made affected the overall performance and stability. Finally, I will do it in Python. I haven’t really created a massive project from scratch with Python, and thus, my understanding of how classes work in Python is somewhat limited. My goal will be to use as many language specific features as possible for Python.</p>
-<p>A couple of decisions that I will need to make:</p>
-<ul>
-<li>Caching - automatic or manual?</li>
-<li>How much to rely on SQL or language specific features beyond the simple CRUD?</li>
-<li>How much functionality to provide to users? How much “magic” should be going on behind the scenes?</li>
-<li>How to reconcile the differences between the databases so that the user shouldn’t have to change their code to change databases?</li>
-<li>What data types to support - different databases support different types. How should I reconcile the differences?</li>
-<li>ORMs make sense for relational databases, how much sense would they make for non-relational databases?</li>
-</ul>
-<p>I’ll probably create a new page to track my progress with this. Link TBD.</p>
-<p>Finally, I’ll also have a separate page for the book problems. <a href="/CMSI_486_Databases/categories/Exercises/">Exercises</a></p>
+        <p>Unfortunately, I cannot post the research paper that I’ve been involved with here, but here is a bit of a writeup about it:</p>
+<p>There had already been a database system set up prior to me joining the project, so I was tasked with maintaining and preparing the database for publication, along with analytics and other minor things. We did run into some problems, namely that even though the original designers of the database schema attempted to anticipate the needs of the students for creating proper logs, due to the nature of how medical diagnoses and procedures go, students were forced to adapt in unfortunately inconsistant ways. A non-insignificant amount of the data would be skewed against certain types of diagnoses and procedures unless something was done.</p>
+<p>My involvement was on the programatic side of things, to develop a solution to perform automated cleanup (i.e. typos or improper categorization) and facilitate manual cleanup when automatic cleanup was impossible (procedures/diagnoses missing/not present). One major problem that was run into was consistently deciding what diagnoses related to the often vague symptoms. This required us to improve the context available to the person making the judgments beyond what was immediately available, requiring complex joins, groups, and sometimes, queries from separate databases altogether.</p>
+<p>The research is nearly done, but it tested the limits of what I knew about database administration and programming, and forced me to think in new and creative ways to implement what the others on the project required. </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Week-Two/" data-id="4dclsq73jvhtz6a3" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/" data-id="to9fz1c7jxlgpv2j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -123,15 +107,20 @@
     
 <nav id="article-nav">
   
-    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Chapter 1 Problems
+          Pros and Cons of Mongo Db
         
       </div>
     </a>
   
+  
+    <a href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Chapter 18 Problems</div>
+    </a>
   
 </nav>
 

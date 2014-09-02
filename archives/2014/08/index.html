@@ -67,12 +67,227 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Chapter-18-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/" class="article-date">
+  <time datetime="2014-08-31T04:32:30.000Z" itemprop="datePublished">Aug 30th 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/">Chapter 18 Problems</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Notes:</p>
+<ul>
+<li>Index access helps to reduce the amount of time required to search through a file - stores each value and a pointer to all disk blocks that include it.</li>
+<li>Primary index used to physically order files on the disk</li>
+<li>Clustering index - used if multiple indexes are suitable for physical ordering</li>
+<li>Secondary - doesn’t deal with ordering of the file, but locates it.</li>
+<li>Dense indexes have an index entry for every single search key</li>
+<li>Sparse - only some of the search keys</li>
+<li>Indexes are useful because they occupy a smaller portion of the disk than the data file - they include fewer records and they only have two fields, the key and the address of the block.</li>
+<li>Clustering - takes up more room, but works on more complex files and indexes</li>
+<li>Secondary index - allows other means of accessing data when a primary index already exists - must still be unique.<ul>
+<li>Takes more storage space and a longer search time, but still improvement over no index at all.</li>
+<li>For non-unqiue data, indexing is still possible, but makes searches more complicated, since the index has to store a list of pointers, instead of a single one.</li>
+</ul>
+</li>
+<li>Multilevel indexes<ul>
+<li>Used to reduce the search space for a binary search</li>
+<li>Uses multiple levels of indexes until the highest level can fit in a single block.</li>
+<li>Can be used for any index, so long as there are distinct values for K(i)</li>
+</ul>
+</li>
+<li>Partitioned hashing - n components produce n hashes, which are catted together to produce one hash. Useful for equality, but not really for searching</li>
+<li>B-tree and B+-tree<ul>
+<li>Tree is formed of nodes, each node (except for the top node) has one parent and 0 or more children.</li>
+<li>Trees are unbalanced</li>
+<li>B-Trees<ul>
+<li>Kept between 50-100% full</li>
+<li>Searching works by forcing things to the left of the key to be left than it, and things to the right of the key to be greater than it. That way, when you compare the key you are looking for to the tree, you can easily find out which direction to travel.</li>
+<li>Balancing a tree minimizes the number of levels</li>
+<li>B-trees have additional constraints to make sure that they are always balanced</li>
+<li>Each node of a b-tree has multiple bits of data and multiple tree pointers - the heirarchy of increasing value goes left to right - tree pointer, data pointer, tree pointer, data pointer, etc, etc, and finally a tree pointer.</li>
+<li>If removal causes the node to be less than half full, it’s combined with neighboring nodes</li>
+</ul>
+</li>
+<li>B+-trees<ul>
+<li>Like a b-tree, except each node only points to the node to the left most node at the next level, and the left node points to the node to the right, and so on</li>
+<li>Insertions and deletions call for complicated algorithms, but they are computationally fast.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Grid files - multi-dimensional array. Works well for access time, but requires a lot of space and difficult to re-organize</li>
+<li>Hash index - uses hashing other than the one used for primary index.</li>
+<li>Bitmap indexes - index for one or more columns, and each value in the column is indexed.<ul>
+<li>Built using one particular value and is an array of bits (sequential 1s and 0s referenceing whether or not something exists at that location).</li>
+<li>Efficient in storage space, but difficult to maintain</li>
+<li>Can use bitwise operations to maintain though.</li>
+</ul>
+</li>
+<li>Function based indexing - applying a function on field(s) becomes the key to an index.</li>
+<li>Logical vs Physical indexes<ul>
+<li>Physical indexes have a block location and an offset that must be changed if the file location on the disk is changed</li>
+<li>Logical indexes - let some other system handle where the files are, and use indexes to point to it.</li>
+</ul>
+</li>
+</ul>
+<p>18.27. Outline an algorithm for deletion from a B + -tree.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">Use</span> searching algorithm <span class="keyword">to</span> find the node that contains the <span class="keyword">data</span> required <span class="keyword">for</span> deletion.</span></div><div class="line"><span class="keyword">Set</span> <span class="keyword">data</span> node <span class="keyword">to</span> <span class="literal">null</span>.</div><div class="line"><span class="keyword">If</span> <span class="keyword">constraints</span> <span class="keyword">are</span> <span class="keyword">not</span> violated (<span class="number">50</span>% <span class="keyword">of</span> the node <span class="keyword">is</span> still <span class="keyword">full</span>), you<span class="string">'re done.</span></div><div class="line">Else, combine node with information around it.</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/" data-id="n8am359xk1w2l019" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Chapter-17-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/" class="article-date">
+  <time datetime="2014-08-31T02:51:35.000Z" itemprop="datePublished">Aug 30th 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/">Chapter 17 Problems</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Notes:</p>
+<ul>
+<li>Most databases are stored somewhere in the file system (on magnetic or SSD storage).</li>
+<li>They generally have algorithms to help accessibility, called indexes</li>
+<li>Databases are too big to fit entirely into memory</li>
+<li>Magnetic tape storage allows for a very cheap method of backing up data</li>
+<li>File allocation is done in clusters, which are contigious bits of data that are linked (provide pointers to the next node). Indexes are also common.</li>
+<li>File headers provide description about a file that tells the OS how to process it</li>
+<li>File operations include retrieval and update operations - finding information or adding new information to a file.<ul>
+<li>Searches can only be done by pattern matching, so complex queries need to be simplified to be able to work on the filesystem.</li>
+</ul>
+</li>
+<li>Some files have ordered records, while others are nothing more than ‘heaps’. Inserting new records is efficient, but searching/location less so.</li>
+<li>Sorted records take more time for inserts, but searching is much faster. Binary searches can be done easily (but require some sort of object that is sortable).</li>
+<li>Hashing allows fast access under certain search conditions - a hash can yield the address where the file is stored - files are placed in buckets</li>
+<li>RAID - use many disks to provide speed or redundency increases</li>
+</ul>
+<p>17.37. Can you think of techniques other than an unordered overflow file that can be used to make insertions in an ordered file more efficient?</p>
+<p>Insertions can be made more efficient by keeping multiple ordered files, appending or prepending where appropriate, or if a record needs to be in the middle of the file, split it - rejoin it when there is downtime.</p>
+<p>17.39. Can you think of techniques other than chaining to handle bucket overflow in external hashing?</p>
+<p>Having nested hash buckets. </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/" data-id="9azksx9whd039obb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Chapter-6-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/08/30/Chapter-6-Problems/" class="article-date">
+  <time datetime="2014-08-30T23:52:27.000Z" itemprop="datePublished">Aug 30th 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/08/30/Chapter-6-Problems/">Chapter 6 Problems</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Sigma is used to denote SELECT (Selecting certain rows in a table and discarding others)</li>
+<li>R refers to an expression whose result is a relation (like a name of a database relation)</li>
+<li>Boolean operations work the way one may expect…</li>
+<li>Pi is used to denote PROJECT (selecting some columns from the table and discarding others). Basically the way it works in MongoDB. SELECT statements in SQL perform both selection and projection</li>
+<li>Pi_<attribute list="">(R)</attribute></li>
+<li>RENAME lets you change the names to make them more descriptive (uses rho)</li>
+<li>Unions, intersections, and set differences work basically the way one may expect them to</li>
+<li>Cartesian products<ul>
+<li>Cross product/cross join - denoted by X</li>
+<li>Produces new element by combining every member from one relation with another (and doing every possible permutation).</li>
+</ul>
+</li>
+<li>Joins combine related tuples into single longer tuples. Inner joins only display things that have matched up paramters, while outer joins leave some nulls<ul>
+<li>Equijoins (=) have one or more pair of attributes that have identicial values in every tuple</li>
+<li>Natural joins (<code>*</code>) are equijoins that get rid of the 2nd set of attributes that represent a join</li>
+</ul>
+</li>
+<li>The prior operations is a complete set - any other operation can be expressed as a series of the ones so far listed</li>
+<li>Division operations are applied to two relations where one’s attributes are a subset of another -  get rid of a field that may include duplicate data that is irrelevant</li>
+</ul>
+<p>6.33. State whether the following conclusions are true or false:<br>a. NOT (P(x) OR Q(x)) → ( NOT (P(x)) AND ( NOT (Q(x)))<br>b. NOT (∃x) (P(x)) → ∀ x ( NOT (P(x))<br>c. (∃x) (P(x)) → ∀ x ((P(x))</p>
+<p>a. True<br>b. False<br>c. False</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/30/Chapter-6-Problems/" data-id="hlxdwyh2kmgdr3te" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Week-Forteen" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/" class="article-date">
   <time datetime="2014-08-26T04:05:29.000Z" itemprop="datePublished">Aug 25th 2014</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -89,7 +304,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>I managed to get quite a few book assignments done, as you can see. I believe I’m nearly done with the required amount of problems, though I’ll probably do quite a few more before I give up the ghost.</p>
+<p>I’ve also tried to include notes on some later chapters, if I remember, I’ll try to go back and do notes for earlier chapters too. Hopefully, by the end of this week, I’ll have finished all the book chapters that I want to finish. I’m not going to be able to finish quite every chapter on my list, but I think I should get a pretty good sampling of what I want. I also need to put the finishing touches on pyORMatic, and polish everything up, and I should be good to go!</p>
+
       
     </div>
     <footer class="article-footer">
@@ -135,8 +352,43 @@
 <li>Nested query scope is similar to programming languages - the scope refers to the innermost nested query</li>
 </ul>
 </li>
+<li>Exists - check to see if something is there<ul>
+<li>Can be used with “EXCEPT” as well to provide conditions</li>
 </ul>
-
+</li>
+<li>Distinct - for explicit sets</li>
+<li>AS for renaming stuff</li>
+<li>Joins…<ul>
+<li>Default is inner</li>
+<li>left and right are cool too</li>
+</ul>
+</li>
+<li>Aggregation - similar to mongodb, grouping, count, sum, max, min, avg, etc.<ul>
+<li>Having - groups with conditions</li>
+</ul>
+</li>
+<li>Triggers and assertions:<ul>
+<li>Assertions for enforcing constraints (and preventing updates when something doesn’t meet them)</li>
+<li>Triggers for creating actions when certain events occur, such as updates or deletes</li>
+</ul>
+</li>
+<li>Views<ul>
+<li>Single table derived from other tables that can have queries executed on. Will always remain up to date.</li>
+<li>View updating is complicated. It can generally be passed through, but not in certain conditions. Usually views are not updatable.</li>
+</ul>
+</li>
+<li>Schema changes<ul>
+<li>Dropping - can be done in a cascading or restricted fashion (cascading means dropping all references, restrict prevents dropping if any references exist)</li>
+<li>Alter - add or remove columns, or change column properties</li>
+</ul>
+</li>
+</ul>
+<p>
+        
+          <p class="article-more-link">
+            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -225,7 +477,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
+      <a class="article-title" href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten to Thirteen</a>
     </h1>
   
 
@@ -350,7 +602,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -363,7 +615,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/09">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -375,23 +627,23 @@
       <ul>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/">Week Forteen</a>
+            <a href="/CMSI_486_Databases/2014/09/01/F1-Database/">F1 Database</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">Chapter 5 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/">Pros and Cons of Mongo Db</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/">Chapter 4 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/">Methods and Procedures</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/">Chapter 18 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/">Chapter 17 Problems</a>
           </li>
         
       </ul>

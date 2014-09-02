@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Week Two | CMSI 486</title>
+  <title>Chapter 6 Problems | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+  <meta name="description" content="Sigma is used to denote SELECT (Selecting certain rows in a table and discarding others)
+R refers to an expression whose result is a relation (like a name of a database relation)
+Boolean operations w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Week Two">
-<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/06/Week-Two/">
+<meta property="og:title" content="Chapter 6 Problems">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/08/30/Chapter-6-Problems/">
 <meta property="og:site_name" content="CMSI 486">
-<meta property="og:description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+<meta property="og:description" content="Sigma is used to denote SELECT (Selecting certain rows in a table and discarding others)
+R refers to an expression whose result is a relation (like a name of a database relation)
+Boolean operations w">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week Two">
-<meta name="twitter:description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+<meta name="twitter:title" content="Chapter 6 Problems">
+<meta name="twitter:description" content="Sigma is used to denote SELECT (Selecting certain rows in a table and discarding others)
+R refers to an expression whose result is a relation (like a name of a database relation)
+Boolean operations w">
 
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -65,16 +71,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Week-Two" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Chapter-6-Problems" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" class="article-date">
-  <time datetime="2014-06-06T16:52:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+    <a href="/CMSI_486_Databases/2014/08/30/Chapter-6-Problems/" class="article-date">
+  <time datetime="2014-08-30T23:52:27.000Z" itemprop="datePublished">Aug 30th 2014</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -83,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Week Two
+      Chapter 6 Problems
     </h1>
   
 
@@ -91,30 +93,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up the course when the Python one comes around, on June 24th. I’ve also spent a great deal of time trying to come up with a project that would not only advance my own skills, but also benefit others. So far, I’ve been unable to determine one, but I’ve decided that an interesting way to begin the project would be to write my own custom ORM.<br><a id="more"></a><br>To kick start the discussion, here’s a quote from wikipedia on what an ORM is:</p>
-<blockquote>
-
-<p>Object-relational mapping in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, in effect, a “virtual object database” that can be used from within the programming language.</p>
-<footer><strong>Wikipedia</strong><cite><a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank" rel="external">Object Relational Mapping</a></cite></footer></blockquote>
-
-
-<p>I had some experience with writing an ORM when I was doing Project 21 last semester, but it was very basic, rudimentary, and targeted towards Postgres and the specific app that we were writing. Ideally, the ORM that I write will be database agnostic - that is, one can pick any type of database to store their data - and be highly generalized, so that any application can easily use it. My main grievance is that there is not often one single interface that allows switching between a large number of databases. Since I haven’t really used any ORMs before, I think this will be a great way to understand how databases interact with the application layer. Once I’m done, I can compare it to established ORMs, and see how the decisions I made affected the overall performance and stability. Finally, I will do it in Python. I haven’t really created a massive project from scratch with Python, and thus, my understanding of how classes work in Python is somewhat limited. My goal will be to use as many language specific features as possible for Python.</p>
-<p>A couple of decisions that I will need to make:</p>
-<ul>
-<li>Caching - automatic or manual?</li>
-<li>How much to rely on SQL or language specific features beyond the simple CRUD?</li>
-<li>How much functionality to provide to users? How much “magic” should be going on behind the scenes?</li>
-<li>How to reconcile the differences between the databases so that the user shouldn’t have to change their code to change databases?</li>
-<li>What data types to support - different databases support different types. How should I reconcile the differences?</li>
-<li>ORMs make sense for relational databases, how much sense would they make for non-relational databases?</li>
+        <ul>
+<li>Sigma is used to denote SELECT (Selecting certain rows in a table and discarding others)</li>
+<li>R refers to an expression whose result is a relation (like a name of a database relation)</li>
+<li>Boolean operations work the way one may expect…</li>
+<li>Pi is used to denote PROJECT (selecting some columns from the table and discarding others). Basically the way it works in MongoDB. SELECT statements in SQL perform both selection and projection</li>
+<li>Pi_<attribute list="">(R)</attribute></li>
+<li>RENAME lets you change the names to make them more descriptive (uses rho)</li>
+<li>Unions, intersections, and set differences work basically the way one may expect them to</li>
+<li>Cartesian products<ul>
+<li>Cross product/cross join - denoted by X</li>
+<li>Produces new element by combining every member from one relation with another (and doing every possible permutation).</li>
 </ul>
-<p>I’ll probably create a new page to track my progress with this. Link TBD.</p>
-<p>Finally, I’ll also have a separate page for the book problems. <a href="/CMSI_486_Databases/categories/Exercises/">Exercises</a></p>
+</li>
+<li>Joins combine related tuples into single longer tuples. Inner joins only display things that have matched up paramters, while outer joins leave some nulls<ul>
+<li>Equijoins (=) have one or more pair of attributes that have identicial values in every tuple</li>
+<li>Natural joins (<code>*</code>) are equijoins that get rid of the 2nd set of attributes that represent a join</li>
+</ul>
+</li>
+<li>The prior operations is a complete set - any other operation can be expressed as a series of the ones so far listed</li>
+<li>Division operations are applied to two relations where one’s attributes are a subset of another -  get rid of a field that may include duplicate data that is irrelevant</li>
+</ul>
+<p>6.33. State whether the following conclusions are true or false:<br>a. NOT (P(x) OR Q(x)) → ( NOT (P(x)) AND ( NOT (Q(x)))<br>b. NOT (∃x) (P(x)) → ∀ x ( NOT (P(x))<br>c. (∃x) (P(x)) → ∀ x ((P(x))</p>
+<p>a. True<br>b. False<br>c. False</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Week-Two/" data-id="4dclsq73jvhtz6a3" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/30/Chapter-6-Problems/" data-id="hlxdwyh2kmgdr3te" class="article-share-link">Share</a>
       
       
     </footer>
@@ -123,15 +129,20 @@
     
 <nav id="article-nav">
   
-    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Chapter 1 Problems
+          Chapter 17 Problems
         
       </div>
     </a>
   
+  
+    <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Week Forteen</div>
+    </a>
   
 </nav>
 

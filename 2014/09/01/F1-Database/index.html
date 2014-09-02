@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Week Two | CMSI 486</title>
+  <title>F1 Database | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+  <meta name="description" content="F1 database is a distributed database developed by Google - more details here: http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf
+I’m going to do my best to exp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Week Two">
-<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/06/Week-Two/">
+<meta property="og:title" content="F1 Database">
+<meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/09/01/F1-Database/">
 <meta property="og:site_name" content="CMSI 486">
-<meta property="og:description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+<meta property="og:description" content="F1 database is a distributed database developed by Google - more details here: http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf
+I’m going to do my best to exp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week Two">
-<meta name="twitter:description" content="So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up">
+<meta name="twitter:title" content="F1 Database">
+<meta name="twitter:description" content="F1 database is a distributed database developed by Google - more details here: http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf
+I’m going to do my best to exp">
 
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -65,16 +68,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Week-Two" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-F1-Database" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" class="article-date">
-  <time datetime="2014-06-06T16:52:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
+    <a href="/CMSI_486_Databases/2014/09/01/F1-Database/" class="article-date">
+  <time datetime="2014-09-02T03:19:12.000Z" itemprop="datePublished">Sep 1st 2014</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -83,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Week Two
+      F1 Database
     </h1>
   
 
@@ -91,30 +90,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up the course when the Python one comes around, on June 24th. I’ve also spent a great deal of time trying to come up with a project that would not only advance my own skills, but also benefit others. So far, I’ve been unable to determine one, but I’ve decided that an interesting way to begin the project would be to write my own custom ORM.<br><a id="more"></a><br>To kick start the discussion, here’s a quote from wikipedia on what an ORM is:</p>
-<blockquote>
-
-<p>Object-relational mapping in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, in effect, a “virtual object database” that can be used from within the programming language.</p>
-<footer><strong>Wikipedia</strong><cite><a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank" rel="external">Object Relational Mapping</a></cite></footer></blockquote>
-
-
-<p>I had some experience with writing an ORM when I was doing Project 21 last semester, but it was very basic, rudimentary, and targeted towards Postgres and the specific app that we were writing. Ideally, the ORM that I write will be database agnostic - that is, one can pick any type of database to store their data - and be highly generalized, so that any application can easily use it. My main grievance is that there is not often one single interface that allows switching between a large number of databases. Since I haven’t really used any ORMs before, I think this will be a great way to understand how databases interact with the application layer. Once I’m done, I can compare it to established ORMs, and see how the decisions I made affected the overall performance and stability. Finally, I will do it in Python. I haven’t really created a massive project from scratch with Python, and thus, my understanding of how classes work in Python is somewhat limited. My goal will be to use as many language specific features as possible for Python.</p>
-<p>A couple of decisions that I will need to make:</p>
+        <p>F1 database is a distributed database developed by Google - more details here: <a href="http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf" target="_blank" rel="external">http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf</a></p>
+<p>I’m going to do my best to explain my understanding of what the paper describes.</p>
+<p>The premise of what Google was trying to do was create a RELATIONAL database designed to be distributed and highly available, unlike other relational databases such as MySQL which didn’t have quite as great of a distributed system. It was designed to be Scalable, consistent, and usable as a SQL database.</p>
+<p>Some of the design choices that Google had made increased reading and writing latency due to extra safety and security of data, though application level programming reduced the hit to the user experience.</p>
 <ul>
-<li>Caching - automatic or manual?</li>
-<li>How much to rely on SQL or language specific features beyond the simple CRUD?</li>
-<li>How much functionality to provide to users? How much “magic” should be going on behind the scenes?</li>
-<li>How to reconcile the differences between the databases so that the user shouldn’t have to change their code to change databases?</li>
-<li>What data types to support - different databases support different types. How should I reconcile the differences?</li>
-<li>ORMs make sense for relational databases, how much sense would they make for non-relational databases?</li>
+<li>Servers are stateless - clients can connect to any server in the network and expect the same result</li>
+<li>Queries can be executed parallelized and map-reduced,  and will transparently be determined if that will be beneficial.</li>
+<li>Primary keys are designed such that queries can easily be run in parallel</li>
+<li>Downtime is to be minimized</li>
+<li>Multiple types of transactions to gaurentee consistency with data retrieved and committed.</li>
+<li>Locking types are flexible</li>
+<li>Logging is designed to be efficient and descriptive</li>
+<li>Document based store is available along with relational stores</li>
 </ul>
-<p>I’ll probably create a new page to track my progress with this. Link TBD.</p>
-<p>Finally, I’ll also have a separate page for the book problems. <a href="/CMSI_486_Databases/categories/Exercises/">Exercises</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Week-Two/" data-id="4dclsq73jvhtz6a3" class="article-share-link">Share</a>
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/09/01/F1-Database/" data-id="zr8ol8p0clalnnxr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -123,15 +117,11 @@
     
 <nav id="article-nav">
   
-    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Chapter 1 Problems
-        
-      </div>
-    </a>
   
+    <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Pros and Cons of Mongo Db</div>
+    </a>
   
 </nav>
 

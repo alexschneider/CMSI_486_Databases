@@ -67,6 +67,314 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-chapter-3-problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/" class="article-date">
+  <time datetime="2014-08-17T20:54:02.000Z" itemprop="datePublished">Aug 17th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>These are selected problems from chapter three of the textbook that I’m using</p>
+
+        
+          <p class="article-more-link">
+            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/17/chapter-3-problems/" data-id="1pusi1sp80tqlrlh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-chapter-2-problems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/08/17/chapter-2-problems/" class="article-date">
+  <time datetime="2014-08-17T20:27:13.000Z" itemprop="datePublished">Aug 17th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/08/17/chapter-2-problems/">Chapter 2 Problems</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>These are selected problems from chapter two of the textbook that I’m using</p>
+
+        
+          <p class="article-more-link">
+            <a href="/CMSI_486_Databases/2014/08/17/chapter-2-problems/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/08/17/chapter-2-problems/" data-id="yi64eexoqtj5ia6r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-week-nine" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/07/28/week-nine/" class="article-date">
+  <time datetime="2014-07-29T03:26:14.000Z" itemprop="datePublished">Jul 28th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/07/28/week-nine/">Week Nine</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I really need to be doing more stuff with the blog!</p>
+<p>I’m leaving for a two week trip to Alaska on Wednesday, which means that there will be no updates for the next couple of weeks.</p>
+<p>However, I plan on doing the following:</p>
+<ul>
+<li>Finishing the MongoDB course - I have one more lesson, which I think I can do tomorrow, and the test, which I’ll have to try to make time to do in Alaska.</li>
+<li>Do a lot of work in the book - this is my time to read and do book problems. I haven’t really been doing much of those lately…</li>
+<li>Work on pyORMatic - this will depend on whether or not there’s time. I can always do pyORMatic after I get back, but I will have lots of long bus/train trips, so I can probably use my laptop for this.</li>
+<li>Take pictures! (Not really related to the course)</li>
+</ul>
+<p>However, I was busy with MongoDB over the past week. I learned about the aggregation framework, which is essentially analogous to SQL’s “clauses,” I.E. WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT, SUM, and COUNT. Since these statemenets are so integral to SQL (especially SELECT, WHERE, ORDER BY, etc), I never really thought about how they would translate to MongoDB, so I was kind of shocked when the majority of the work we did was without these aids. I suppose that the majority of MongoDB’s operations can be emulated in a programming language much more easily than SQL,</p>
+<p>Mongo’s versatility does come at a cost, however. Even something as simple as counting the number of orders in a database is extremely verbose:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">db.orders.aggregate( [</div><div class="line">   {</div><div class="line">     $<span class="keyword">group</span>: {</div><div class="line">        _id: <span class="keyword">null</span>,</div><div class="line">        <span class="keyword">count</span>: { $<span class="keyword">sum</span>: <span class="number">1</span> }</div><div class="line">     }</div><div class="line">   }</div><div class="line">] )</div></pre></td></tr></table></figure>
+
+<p>Compare to SQL:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> orders</span></div></pre></td></tr></table></figure>
+
+<p>More examples can be found <a href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/" target="_blank" rel="external">here</a></p>
+<p>Mongo’s way of doing things makes longer, more complicated queries much simpler than MySQL, since there’s a practically infinite amount of nesting that can be done, and it can be done in a much more intuitive way than SQL. However, there’s a number of little gotchas that make things rather annoying (though this could easily be my fault for being so used to SQL).</p>
+<p>Thankfully, my perfect homework score still stands (despite me having to guess on one of the problems…). </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/28/week-nine/" data-id="koimdbkdi36s1z2r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-week-eight" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/07/21/week-eight/" class="article-date">
+  <time datetime="2014-07-22T05:13:15.000Z" itemprop="datePublished">Jul 21st 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/07/21/week-eight/">Week Eight</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’m still down to the wire on this post, but at least I have more meaningful stuff to say. This week, as an overview, I managed to complete the MongoDB requriements early - last Tuesday, and spend all weekend working on pyORMatic (which, I’ve learned, doesn’t have a link on the page. Let’s <a href="https://github.com/alexschneider/pyORMatic" target="_blank" rel="external">fix</a> that). I’ve also added a link to the pyORMatic page.</p>
+<p>I spent a good deal of time planning how I wanted to take my new ORM, and I think I’ve got a solid direction. Here are some of my considerations:</p>
+<ul>
+<li>I want to be able to store RICH objects<ul>
+<li>Unsurprisingly, Python has a <a href="https://docs.python.org/3.4/library/pickle.html" target="_blank" rel="external">way to do it</a></li>
+<li>To facilitate storing and retrieving data, I am going to have a custom object type that is similar to a dictionary (users of my ORM can treat it like one). It also supports attribute style accessors.</li>
+</ul>
+</li>
+<li>I want to be able to quickly and easily switch between databases<ul>
+<li>As such, storing data in a human readable/queryable format is secondary. This means that all queries will have to be done through the ORM. Storage will be done in such a way that makes as much sense as possible (i.e. JSON format in Postgres, JSON as flat files, Blobs in MySQL), but as the data is binary encoded from pickling, this is secondary.</li>
+</ul>
+</li>
+<li>The ORM should be simple - it supports “putting” an object, “getting” an object, “modifying” an object, and “deleting” an object. Anything else must be handled by user of the ORM.</li>
+</ul>
+<p>Performance:</p>
+<ul>
+<li>I will let MySQL/Postgres/Mongo handle performance in their own way, doing my best to optimize queries to match the database’s best case uses within my constraints.</li>
+<li>For flat files, I toyed with implementing sort of a B-Tree system, using binary search trees, or using indexes. My goal was to avoid overwriting the entire file after each database write, instead preferring to either append to the file or update only the line necessary. I ended up deciding (mostly out of laziness) to just overwrite the entire file and handle searching internally.<ul>
+<li>Thankfully, Python has many methods that make sorting and searching easier. Due to the old adage: “If I didn’t write it, it occurs in asymptotically θ(1) time,” all my code occurs in constant time!</li>
+<li>On a more serious note, I was worried of becoming victim to <a href="http://c2.com/cgi/wiki?PrematureOptimization" target="_blank" rel="external">premature optimization</a>. I decided to get the code working first, and go back for optimization afterward.</li>
+</ul>
+</li>
+</ul>
+<p>R.E. Mongo - this is also going well. I’m still at 100% completion on homework and tests. The performance considerations were very interesting to me, and had a pretty significant impact on how I decided to construct the database. I toyed with the idea of using indexes, and I still may, but managing indexes is very complicated, especially considering the number one consideration that I have for my database - rich data storage. Because pickling is storing binary data, it is difficult to organize data in a certain way. I’ll keep doing research to see if it’s at all possible though.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/21/week-eight/" data-id="bi1uuw06tikv9shi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-week-seven" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/07/14/week-seven/" class="article-date">
+  <time datetime="2014-07-14T15:09:25.000Z" itemprop="datePublished">Jul 14th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/07/14/week-seven/">Week Seven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Thus ends week three of the Mongo course. I STILL haven’t had time to do much else, but in a couple of weeks I’m leaving on a trip where my internet access will be limited. I’m planning on spending a lot of time with the textbook and catching with pyORMatic then. I’ll try to make more advances over the coming weeks, as they ought to be less hectic than the last couple of weeks.</p>
+<p>This week in Mongo was about Schema design. More specifically, about how Schemaless design is “great.” I’ve ranted a little in last week’s post about this, but here’s some more:</p>
+<ul>
+<li>It is nice to have a rich document design that can have many layers. This reduces the number of documents/tables needed to store related information. As such, One-One and One-Many relations are modeled quite easily in Mongo, assuming the data being stored is only pertinent to the parent document.  </li>
+<li>However, having such a rich document design has drawbacks, since it makes it difficult to have normalized data - that is, data that isn’t repeated or replicated. Ideally, if something needed changing, one would only need to change it in one location.</li>
+<li>Furthermore, relations between tables have to be performed inside the programming language, rather than inside the database. There may be a way that I haven’t learned yet to do relations within Mongo, but what I have learned just feels very clunky.</li>
+</ul>
+<p>It felt like there were several workarounds that were needed to accurately model the relations. In the Mongo videos, the examples that they gave amounted to: “You would never actually need to do this with correct schema design”, or “We don’t need to store this data because it would contradict with our schema design”.</p>
+<p>For the homework this week, I did write a couple of one liners in python that were pretty awesome. A little bit of an aside: Functional constructs in langauges are amazing. They allow code to be incredibly short and once one understands them, can pack a ton of power into a single line of code.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/14/week-seven/" data-id="0e1yr621dtlgf328" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-week-six" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/07/07/week-six/" class="article-date">
+  <time datetime="2014-07-08T03:45:40.000Z" itemprop="datePublished">Jul 7th 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/07/07/week-six/">Week Six</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This week, I’ve done the 2nd week of the MongoDB course. Thankfully, unlike last week, I managed to submit the homework on time. Mongo has been taking up a large majority of the time that I’ve been able to spend on the databases class, but hopefully, I’ll get to spend more time next week.</p>
+<p>One of the things that I personally believe is valuable and increases the depth of knowledge out of a course is teaching others. I’ve been trying to be active on the MongoDB forums, answering questions that I have the ability to. At first, this was very difficult, but I’ve been able to do it more and more easily. It’s always nice to be thanked, as well.</p>
+<p>The primary goal this week for the Mongo course was CRUD operations. One thing that I’m not a huge fan of is Mongo’s schemaless design. All of the operations feel fairly arbitrary and cobbled together. Also, though it is nice to have native extensions in the language that you are using, there are some annoyances. It’s difficult to translate database queries between languages, since they use the programming language’s design features. Thankfully, python has data structures that are more or less analogous to Javascript’s Object and Array types, but for a language like Java, C, or others, I imagine it’s much more difficult to wrap your head around.</p>
+<p>As a result, even though Mongo has a rich querying langauge that’s pretty well represented by PyMongo, I still prefer to do the bare minimum with PyMongo, and perform all the sorting, limits, and manipulations within Python itself. I’ve been trying to force myself to do things with PyMongo as much as possible, but it leads to a lot of frustrated cries of <a href="http://gag.googlecode.com/svn/trunk/javadoc/com/google/gag/annotation/remark/ThisWouldBeOneLineIn.html" target="_blank" rel="external">“THIS COULD BE DONE IN ONE LINE!”</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/07/07/week-six/" data-id="l3qakbdsgk7uem26" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-week-five" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CMSI_486_Databases/2014/07/01/week-five/" class="article-date">
@@ -235,7 +543,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://guidetodatamining.com/" target="_blank" rel="external">This</a> book looks really interesting. Data mining and databases certainly go well together, so I ought to read it and write a report on it. Will be up at a later date on this page. </p>
+        <p>One of the things I’ll be doing is adapting all of the Guide to Data Mining databases to use my database through pyORMatic. You can find the code in one of my repositories to be posted here.</p>
+<ul>
+<li>Data mining</li>
+<li>Our world is overloaded with data - previously we relied on experts to find data, but now, we have access to all the information ourselves.</li>
+<li>Companies and groups use data about us to target narrow audiences directly, rather than appealing to a broad audience but losing some of the fringes.</li>
+<li>Recommendation systems<ul>
+<li>Used by companies like amazon</li>
+<li>Finding similar people based on previous interactions:<ul>
+<li>Compute distance on a grid (number of vertical cells and number of horizontal cells)</li>
+<li>Similar people get similar recommendations</li>
+<li>Finding the distance as the crow flies</li>
+</ul>
+</li>
+<li>Part of the issue with recommendation systems is trying to figure out how people weight their reviews - some people may only give as low as a 4, while some people may give reviews like 1s or 2s.</li>
+<li>For large amounts of data (like iTunes music recommendation), the possibility of a matching scheme is slim, so when comparing things like tracks played, comparing “0”s is pointless</li>
+<li>Cosine similarity gets rid of the 0 matches</li>
+<li>Dense data should use manhattan and euclidean matching algorithms, but non-dense data with these algorithms provides faulty results. Sparse data works better with cosine similarity</li>
+<li>Using k-nearest neighbor is another matching scheme<ul>
+<li>Compute “k” values using a prior mentioned algorithm, and provide them weight based on the strength of their score.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>What I did with the program - adapt it to use pyORMatic rather than CSV/internal memory. I worked out most of the bugs with pyORMatic, but due to lack of time, I only was able to add flat file databases to pyORMatic. Hopefully that should come later. </p>
 
       
     </div>
@@ -250,159 +582,9 @@
 
 
   
-    <article id="post-Initial-Planning" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/07/Initial-Planning/" class="article-date">
-  <time datetime="2014-06-07T20:50:17.000Z" itemprop="datePublished">Jun 7th 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/CMSI_486_Databases/2014/06/07/Initial-Planning/">Initial Planning</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This will be my plan for pyORMatic, a python ORM project aimed at supporting as many free and open source database systems as physically possible.</p>
-<p>My application structure will have 3 separate layers.</p>
-<ol>
-<li>Database Class.<ul>
-<li>Handles connecting to the database and performs all the raw queries that are specific to that database. There will be one abstract database class that each individual database will extend. This will handle reading data from the database, placing data into the database, updating data, and deleting data. It will also handle describing the database schema and creating database schema, so the program can handle switching between databases with ease. Finally, it will handle creating all the table classes for the database.</li>
-</ul>
-</li>
-<li>Table Class<ul>
-<li>This will be more or less identical across all the different types of databases. This will handle creating an object for each individual row in the database (from here on out, known as a database_object). It will also handle keeping the database_objects in sync with the database, and schema changes for tables.</li>
-</ul>
-</li>
-<li>DatabaseObject class<ul>
-<li>This class will be dynamically created by the table class so that it matches the database schema exactly. The class will only support setting and retrieving variables. Any other database manipulation should be handled in the Table class.</li>
-</ul>
-</li>
-</ol>
-<p>In addition to the above, there will be one “Master” class that will handle retrieving the database’s respective class and initializing it, along with handling transfers from one database to another.</p>
-<p>At first, this will only have CRUD operations and data caching. If time permits, more advanced features will be added, such as relations (joins), transaction rollback, relations, and other potentially database specific features (and emulating them on the software side).</p>
-<p><a href="https://github.com/alexschneider/pyORMatic" target="_blank" rel="external">Repo Link</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/07/Initial-Planning/" data-id="fbuyq9ibacxd12am" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Chapter-1-Problems" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" class="article-date">
-  <time datetime="2014-06-07T03:07:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/">Chapter 1 Problems</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>These are selected problems from chapter one of the textbook that I’m using</p>
-
-        
-          <p class="article-more-link">
-            <a href="/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Chapter-1-Problems/" data-id="airqdc2z1ttkhqvs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Week-Two" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/CMSI_486_Databases/2014/06/06/Week-Two/" class="article-date">
-  <time datetime="2014-06-06T16:52:39.000Z" itemprop="datePublished">Jun 6th 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/CMSI_486_Databases/2014/06/06/Week-Two/">Week Two</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>So the first week I didn’t really do much for the class. I think I’ve decided to not do the MongoDB course in effort to try to learn on my own. I figure that if that doesn’t work, I can always pick up the course when the Python one comes around, on June 24th. I’ve also spent a great deal of time trying to come up with a project that would not only advance my own skills, but also benefit others. So far, I’ve been unable to determine one, but I’ve decided that an interesting way to begin the project would be to write my own custom ORM.<br>
-        
-          <p class="article-more-link">
-            <a href="/CMSI_486_Databases/2014/06/06/Week-Two/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/06/06/Week-Two/" data-id="4dclsq73jvhtz6a3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/CMSI_486_Databases/archives/">&laquo; Prev</a><a class="page-number" href="/CMSI_486_Databases/archives/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/CMSI_486_Databases/archives/">&laquo; Prev</a><a class="page-number" href="/CMSI_486_Databases/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/CMSI_486_Databases/archives/page/3/">3</a><a class="extend next" rel="next" href="/CMSI_486_Databases/archives/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -413,7 +595,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -426,7 +608,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/09">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -438,23 +620,23 @@
       <ul>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/">Week Forteen</a>
+            <a href="/CMSI_486_Databases/2014/09/01/F1-Database/">F1 Database</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">Chapter 5 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/">Pros and Cons of Mongo Db</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/">Chapter 4 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/">Methods and Procedures</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/">Chapter 18 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/">Chapter 17 Problems</a>
           </li>
         
       </ul>

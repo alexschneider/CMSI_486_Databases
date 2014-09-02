@@ -5,15 +5,21 @@
   
   <title>Data Minining | CMSI 486</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This book looks really interesting. Data mining and databases certainly go well together, so I ought to read it and write a report on it. Will be up at a later date on this page.">
+  <meta name="description" content="One of the things I’ll be doing is adapting all of the Guide to Data Mining databases to use my database through pyORMatic. You can find the code in one of my repositories to be posted here.
+
+Data min">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Minining">
 <meta property="og:url" content="http://alexschneider.github.io/CMSI_486_Databases/CMSI_486_Databases/2014/06/08/Data-Minining/">
 <meta property="og:site_name" content="CMSI 486">
-<meta property="og:description" content="This book looks really interesting. Data mining and databases certainly go well together, so I ought to read it and write a report on it. Will be up at a later date on this page.">
+<meta property="og:description" content="One of the things I’ll be doing is adapting all of the Guide to Data Mining databases to use my database through pyORMatic. You can find the code in one of my repositories to be posted here.
+
+Data min">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Minining">
-<meta name="twitter:description" content="This book looks really interesting. Data mining and databases certainly go well together, so I ought to read it and write a report on it. Will be up at a later date on this page.">
+<meta name="twitter:description" content="One of the things I’ll be doing is adapting all of the Guide to Data Mining databases to use my database through pyORMatic. You can find the code in one of my repositories to be posted here.
+
+Data min">
 
   
     <link rel="alternative" href="/atom.xml" title="CMSI 486" type="application/atom+xml">
@@ -91,7 +97,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://guidetodatamining.com/" target="_blank" rel="external">This</a> book looks really interesting. Data mining and databases certainly go well together, so I ought to read it and write a report on it. Will be up at a later date on this page. </p>
+        <p>One of the things I’ll be doing is adapting all of the Guide to Data Mining databases to use my database through pyORMatic. You can find the code in one of my repositories to be posted here.</p>
+<ul>
+<li>Data mining</li>
+<li>Our world is overloaded with data - previously we relied on experts to find data, but now, we have access to all the information ourselves.</li>
+<li>Companies and groups use data about us to target narrow audiences directly, rather than appealing to a broad audience but losing some of the fringes.</li>
+<li>Recommendation systems<ul>
+<li>Used by companies like amazon</li>
+<li>Finding similar people based on previous interactions:<ul>
+<li>Compute distance on a grid (number of vertical cells and number of horizontal cells)</li>
+<li>Similar people get similar recommendations</li>
+<li>Finding the distance as the crow flies</li>
+</ul>
+</li>
+<li>Part of the issue with recommendation systems is trying to figure out how people weight their reviews - some people may only give as low as a 4, while some people may give reviews like 1s or 2s.</li>
+<li>For large amounts of data (like iTunes music recommendation), the possibility of a matching scheme is slim, so when comparing things like tracks played, comparing “0”s is pointless</li>
+<li>Cosine similarity gets rid of the 0 matches</li>
+<li>Dense data should use manhattan and euclidean matching algorithms, but non-dense data with these algorithms provides faulty results. Sparse data works better with cosine similarity</li>
+<li>Using k-nearest neighbor is another matching scheme<ul>
+<li>Compute “k” values using a prior mentioned algorithm, and provide them weight based on the strength of their score.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>What I did with the program - adapt it to use pyORMatic rather than CSV/internal memory. I worked out most of the bugs with pyORMatic, but due to lack of time, I only was able to add flat file databases to pyORMatic. Hopefully that should come later. </p>
 
       
     </div>
@@ -133,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -146,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/09">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/08">August 2014</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/07">July 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/CMSI_486_Databases/archives/2014/06">June 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -158,23 +188,23 @@
       <ul>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/25/Week-Forteen/">Week Forteen</a>
+            <a href="/CMSI_486_Databases/2014/09/01/F1-Database/">F1 Database</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-5-Problems/">Chapter 5 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/">Pros and Cons of Mongo Db</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/24/Chapter-4-Problems/">Chapter 4 Problems</a>
+            <a href="/CMSI_486_Databases/2014/09/01/Methods-and-Procedures/">Methods and Procedures</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/18/week-ten/">Week Ten</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-18-Problems/">Chapter 18 Problems</a>
           </li>
         
           <li>
-            <a href="/CMSI_486_Databases/2014/08/17/chapter-3-problems/">Chapter 3 Problems</a>
+            <a href="/CMSI_486_Databases/2014/08/30/Chapter-17-Problems/">Chapter 17 Problems</a>
           </li>
         
       </ul>
