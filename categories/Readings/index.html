@@ -67,6 +67,131 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-F1-Database" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/09/01/F1-Database/" class="article-date">
+  <time datetime="2014-09-02T03:19:12.000Z" itemprop="datePublished">Sep 1st 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/09/01/F1-Database/">F1 Database</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>F1 database is a distributed database developed by Google - more details here: <a href="http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf" target="_blank" rel="external">http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/41344.pdf</a></p>
+<p>I’m going to do my best to explain my understanding of what the paper describes.</p>
+<p>The premise of what Google was trying to do was create a RELATIONAL database designed to be distributed and highly available, unlike other relational databases such as MySQL which didn’t have quite as great of a distributed system. It was designed to be Scalable, consistent, and usable as a SQL database.</p>
+<p>Some of the design choices that Google had made increased reading and writing latency due to extra safety and security of data, though application level programming reduced the hit to the user experience.</p>
+<ul>
+<li>Servers are stateless - clients can connect to any server in the network and expect the same result</li>
+<li>Queries can be executed parallelized and map-reduced,  and will transparently be determined if that will be beneficial.</li>
+<li>Primary keys are designed such that queries can easily be run in parallel</li>
+<li>Downtime is to be minimized</li>
+<li>Multiple types of transactions to gaurentee consistency with data retrieved and committed.</li>
+<li>Locking types are flexible</li>
+<li>Logging is designed to be efficient and descriptive</li>
+<li>Document based store is available along with relational stores</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/09/01/F1-Database/" data-id="zr8ol8p0clalnnxr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Pros-and-Cons-of-MongoDB" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/" class="article-date">
+  <time datetime="2014-09-02T02:59:23.000Z" itemprop="datePublished">Sep 1st 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/">Pros and Cons of Mongo Db</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In addition to my coursework in MongoDB, I decided to do some more research from someone who may not be as biased as 10gen (the developers of MongoDB).</p>
+<p>Here are the two links I used:</p>
+<p><a href="http://halls-of-valhalla.org/beta/articles/the-pros-and-cons-of-mongodb,45/" target="_blank" rel="external">http://halls-of-valhalla.org/beta/articles/the-pros-and-cons-of-mongodb,45/</a></p>
+<p><a href="http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/" target="_blank" rel="external">http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/</a></p>
+<p>(Now, granted, they may be biased against MongoDB, obviously the 2nd one, but we’ll see).</p>
+<p>R.E. the first one:</p>
+<ul>
+<li>Advantages:<ul>
+<li>Load balancing and redundancies in MongoDB is far simpler than many SQL databases.</li>
+<li>The document database system (instead of relational database system) means that the speed of MongoDB is far faster than anything a relational database system can achieve, if only because one query is often sufficient to obtain all or nearly all information.</li>
+<li>MongoDB is flexible</li>
+</ul>
+</li>
+<li>Disadvantages:<ul>
+<li>Joins must be handled in the program, which can reduce code readability. Also, traditional optimizations  that databases can make for joins no longer exist in Mongo</li>
+<li>MongoDB requires much more memory than relational databases</li>
+<li>Denormalization is common in MongoDB. To normalize, sometimes storing references is required (in which case, why not just use a relational database in the first place?)</li>
+<li>Though MongoDB’s actions are mostly atomic, it doesn’t have the same concept of ACID transactions that many relational databases have.</li>
+<li>MongoDB is up and coming technology, as opposed to relational databases which are battle hardened.</li>
+<li>Safe mode in mongodb is confusing - data sent to the database doesn’t ensure that data gets written to teh database</li>
+<li>Transactions need to be manually emulated in code.</li>
+</ul>
+</li>
+</ul>
+<p>The first article claims that even though the cons list is long, there are some use cases for it.</p>
+<p>Second article:</p>
+<p>The author is a self-proclaimed expert on web applications who feels he made the wrong decision with MongoDB.</p>
+<p>The project was a widely distributed social networking system that involved a lot of independent applications working together to provide a social networking experience. Many databases were asynchronously updating and had different contents, and would only fetch the ones they needed.</p>
+<p>Mongo documents are great for self contained documents that have many separate components, but for social networking, some of the components end up being duplicated quite often. Social networking isn’t really self-contained either, which makes linking between them difficult.</p>
+<p>Part of the issue the author ran into was that cache invalidation is rather difficult to implement when considering edge cases. MongoDB acts more like a cache than a database.</p>
+<p>As a result, MongoDB’s use case is extremely narrow, according to the author, perhaps narrow enough to warrant ignoring or avoiding it alltogether.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://alexschneider.github.io/CMSI_486_Databases/2014/09/01/Pros-and-Cons-of-MongoDB/" data-id="zq8jg5162agv22uw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Data-Minining" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CMSI_486_Databases/2014/06/08/Data-Minining/" class="article-date">
@@ -141,7 +266,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Exercises/">Exercises</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Readings/">Readings</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Research/">Research</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/Weekly-Updates/">Weekly Updates</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/CMSI_486_Databases/categories/pyORMatic/">pyORMatic</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
